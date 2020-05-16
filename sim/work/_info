@@ -1,0 +1,240 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\arnau\Desktop
+vContador
+Z1 !s100 WG;o9BUaRMVBj9iL]>Ld90
+Z2 I=J9TXM1He==4BNK?HH^m50
+Z3 VE2h5[bDNY=XGklHF]TmYB1
+Z4 dD:\DSSD\ModelFuncional_ArnauQuintana\sim
+Z5 w1589478627
+Z6 8D:/DSSD/ModelFuncional_ArnauQuintana/src/Contador.v
+Z7 FD:/DSSD/ModelFuncional_ArnauQuintana/src/Contador.v
+L0 1
+Z8 OV;L;6.6d;45
+r1
+31
+Z9 !s102 -nocovercells
+Z10 o-work work -nocovercells -O0
+Z11 n@contador
+!s85 0
+!s101 -O0
+vdiv_25
+Z12 !s100 b?5^n9b@?aG1]2J]8^iAn0
+Z13 IJmP??E]HTShZj2Kca=^aN0
+Z14 VOLH86hjal[92YUok27UZN2
+R4
+Z15 w1589393181
+Z16 8D:/DSSD/ModelFuncional_ArnauQuintana/src/div_25.v
+Z17 FD:/DSSD/ModelFuncional_ArnauQuintana/src/div_25.v
+L0 3
+R8
+r1
+31
+R9
+R10
+!s85 0
+!s101 -O0
+vdiv_5
+Z18 !s100 dS9E]b[>`ga?nPTiFc56z1
+Z19 I@YX=^5d4ENgN9m4lkU^^E0
+Z20 Ve]MgAk11HK`N7NJYY57ld1
+R4
+Z21 w1589393285
+Z22 8D:/DSSD/ModelFuncional_ArnauQuintana/src/div_5.v
+Z23 FD:/DSSD/ModelFuncional_ArnauQuintana/src/div_5.v
+L0 3
+R8
+r1
+31
+R9
+R10
+!s85 0
+!s101 -O0
+vLM75x_fm
+Z24 !s100 4k[3d19mN1JXVZE:Qb4WN0
+Z25 I2RR8Z1H^OoTi@[USJ0SHX0
+Z26 V_8f8?e@l;o=]2>7GTONkN1
+R4
+Z27 w1589644226
+Z28 8D:\DSSD\ModelFuncional_ArnauQuintana\fm\LM75x_fm.v
+Z29 FD:\DSSD\ModelFuncional_ArnauQuintana\fm\LM75x_fm.v
+L0 1
+R8
+r1
+31
+R9
+R10
+Z30 n@l@m75x_fm
+!s85 0
+!s101 -O0
+vMaster
+Z31 !s100 HSU=JnjBNd8bTR@WJ5Loa0
+Z32 I:h^o[edYZaf59FWP[cNJC3
+Z33 VFoK80b@l=4T5mZTV?oi>Z3
+R4
+Z34 w1589633162
+Z35 8D:\DSSD\ModelFuncional_ArnauQuintana\src\Master.v
+Z36 FD:\DSSD\ModelFuncional_ArnauQuintana\src\Master.v
+L0 1
+R8
+r1
+31
+R9
+R10
+Z37 n@master
+!s85 0
+!s101 -O0
+vShift_PLSR_master
+Z38 !s100 WJHR81[`_LdL]Y`KWH[=[3
+Z39 I_aUoAngLYBS<U]?M_K3AL1
+Z40 VQ=iF5`_bgPBM?Y3TR66Sh2
+R4
+Z41 w1588583783
+Z42 8D:/DSSD/ModelFuncional_ArnauQuintana/src/Shift_PLSR_master.v
+Z43 FD:/DSSD/ModelFuncional_ArnauQuintana/src/Shift_PLSR_master.v
+L0 1
+R8
+r1
+31
+R9
+R10
+Z44 n@shift_@p@l@s@r_master
+!s85 0
+!s101 -O0
+vShift_PLSR_slave
+Z45 !s100 ;F==5igF7:W5Ln=e<@Q^V2
+Z46 I50^X`EESf9MELkfh2f;WC1
+Z47 V5I_Jb4Ac@B]FK7SY^^@ok2
+R4
+Z48 w1588498619
+Z49 8D:/DSSD/ModelFuncional_ArnauQuintana/fm/Shift_PLSR_slave.v
+Z50 FD:/DSSD/ModelFuncional_ArnauQuintana/fm/Shift_PLSR_slave.v
+L0 1
+R8
+r1
+31
+R9
+R10
+Z51 n@shift_@p@l@s@r_slave
+!s85 0
+!s101 -O0
+vShift_SRPL_master
+Z52 !s100 77DTf3hl34[FBml40^jPj2
+Z53 I?j9IbdC4b:W;KHYD@l7ND3
+Z54 V73JMDzS19=gFFRJH4i;_31
+R4
+Z55 w1587744981
+Z56 8D:/DSSD/ModelFuncional_ArnauQuintana/src/Shift_SRPL_master.v
+Z57 FD:/DSSD/ModelFuncional_ArnauQuintana/src/Shift_SRPL_master.v
+L0 1
+R8
+r1
+!s85 0
+31
+!s101 -O0
+R9
+R10
+Z58 n@shift_@s@r@p@l_master
+vShift_SRPL_slave
+Z59 !s100 V9@YAVYAFESY5>LeVfKiA0
+Z60 I`@WEi0@21AzlFP?e==[oQ1
+Z61 VXVf[9T]05]VLN5A;@Ce3[0
+R4
+Z62 w1588005729
+Z63 8D:/DSSD/ModelFuncional_ArnauQuintana/fm/Shift_SRPL_slave.v
+Z64 FD:/DSSD/ModelFuncional_ArnauQuintana/fm/Shift_SRPL_slave.v
+L0 1
+R8
+r1
+31
+R9
+R10
+Z65 n@shift_@s@r@p@l_slave
+!s85 0
+!s101 -O0
+vsys_clk50MHz_fm
+Z66 !s100 f7VDzkN7k^BoXd4BbK7c@3
+Z67 ICV?Fmmd[X2]iDzG8nn2b?3
+Z68 VaaoIm>`PD@;zde=iAHd]`1
+R4
+Z69 w1589378008
+Z70 8D:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_clk50MHz_fm.v
+Z71 FD:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_clk50MHz_fm.v
+L0 27
+R8
+r1
+31
+R9
+R10
+Z72 nsys_clk50@m@hz_fm
+!s85 0
+!s101 -O0
+vsys_rst_fm
+Z73 !s100 2gn6GRe4>FiGoLhMXbJbO2
+Z74 I`G_RQ3@TlF:_07n@Al]Ok0
+Z75 VBXga2<m:8E]9bVV[GPdTN3
+R4
+Z76 w1589559026
+Z77 8D:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_rst_fm.v
+Z78 FD:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_rst_fm.v
+L0 27
+R8
+r1
+31
+R9
+R10
+!s85 0
+!s101 -O0
+vtb_I2C
+Z79 !s100 ?kkdoZ^lN=ecn99MkYfJW1
+Z80 IZRU0kW=]VMHF:WI^=IkNR1
+Z81 VTXhZLg2T]i9S5oO0CII1M3
+R4
+Z82 w1589644799
+Z83 8D:\DSSD\ModelFuncional_ArnauQuintana\tb\tb_I2C.v
+Z84 FD:\DSSD\ModelFuncional_ArnauQuintana\tb\tb_I2C.v
+L0 1
+R8
+r1
+31
+R9
+R10
+Z85 ntb_@i2@c
+!s85 0
+!s101 -O0
+vUC_LM75x_fm
+Z86 !s100 8Tcn3f]7j6HIkAQ0@Jom[1
+Z87 IG:g>8]9bX>0d0o`UFQU=H0
+Z88 V_ZaS97jL3mc]T8OYbBc`32
+R4
+Z89 w1589573543
+Z90 8D:\DSSD\ModelFuncional_ArnauQuintana\fm\UC_LM75x_fm.v
+Z91 FD:\DSSD\ModelFuncional_ArnauQuintana\fm\UC_LM75x_fm.v
+L0 1
+R8
+r1
+31
+R9
+R10
+Z92 n@u@c_@l@m75x_fm
+!s85 0
+!s101 -O0
+vUC_Master
+Z93 !s100 `EdD]jWo<3hCUa2nnT9_?2
+Z94 IkM9zG8CV@RUE`W9@1=SSf3
+Z95 VKzh@<LW;[HBOYGLjNdihA0
+R4
+Z96 w1589645027
+Z97 8D:\DSSD\ModelFuncional_ArnauQuintana\src\UC_Master.v
+Z98 FD:\DSSD\ModelFuncional_ArnauQuintana\src\UC_Master.v
+L0 1
+R8
+r1
+31
+R9
+R10
+Z99 n@u@c_@master
+!s85 0
+!s101 -O0

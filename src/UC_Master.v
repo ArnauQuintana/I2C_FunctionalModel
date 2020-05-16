@@ -1,0 +1,170 @@
+module UC_Master(input Clk,
+input Clk_scl,
+input Rst,
+input Start,
+input R_W,
+input Datain_sda,
+input [7:0] Pointer,
+input [3:0] Out_cont_cycle,
+input [3:0] Out_cont_data,
+output reg En_cont_data,
+output reg Load_shiftPLSR,
+output reg Load_shiftSRPL,
+output reg [1:0] Enable_sda,
+output reg [2:0] SelectPLSR,
+output reg [1:0] Enable_clk,
+output reg Ready,
+output reg Error);
+  
+  reg [3:0] state,next;
+  
+  parameter S0 = 4'b0000,  //IDLE
+            S1 = 4'b0001,  //START
+            S2 = 4'b0010,  //ADRESS
+            S3 = 4'b0011,  //ACK Adress
+            S4 = 4'b0100,  //MSB RD
+            S5 = 4'b0101,  //ACK MSB RD
+            S6 = 4'b0110,  //LSB RD
+            S7 = 4'b0111,  //NACK LSB RD
+            S8 = 4'b1000,  //POINTER
+            S9 = 4'b1001,  //ACK POINTER
+            S10 = 4'b1010, //MSB BYTE WR
+            S11 = 4'b1011, //ACK MSB WR
+            S12 = 4'b1100, //LSB WR
+            S13 = 4'b1101, //ACK LSB WR
+            S14 = 4'b1110, //STOP
+            S15 = 4'b1111; //ERROR 
+ 
+  always@(posedge Clk or negedge Rst)
+    if (!Rst) state = S0;
+    else      state = next;
+      
+  always@(state or Out_cont_data or Start or Out_cont_cycle or Datain_sda or Clk_scl or R_W) begin
+  next = 4'bx;
+  case(state)
+    S0: if (Start) next = S1;
+        else       next = S0;
+    S1: if (Out_cont_cycle == 4'b0010) next = S2;
+        else  next = S1;
+    S2: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0001) next = S3;
+        else  next = S2;
+    S3: if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && R_W == 1'b0) next = S8;
+        else if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && R_W == 1'b1) next = S5;
+        else if (Clk_scl == 1'b1 && Datain_sda == 1'b1) next = S0;
+        else next = S3; 
+    S8: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0001) next = S9;
+        else  next = S8;
+    S9: if (Clk_scl == 1'b1 && Datain_sda == 1'b0) next = S10;
+        else if (Clk_scl == 1'b1 && Datain_sda == 1'b1) next = S15;
+        else next = S9; 
+    S10: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0001) next = S11;
+         else  next = S10;
+    S11: if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && Pointer[1] == 1'b1) next = S12;
+         else if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && Pointer[1] == 1'b0 && Out_cont_cycle == 4'b0101) next = S14;
+         else if (Clk_scl == 1'b1 && Datain_sda == 1'b1) next = S15;
+         else next = S11; 
+    S12: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0001) next = S13;
+         else  next = S12;
+    S13: if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && Out_cont_cycle == 4'b0101) next = S14;
+         else if (Clk_scl == 1'b1 && Datain_sda == 1'b1 && Out_cont_cycle == 4'b0101) next = S15;
+         else next = S13; 
+    
+    
+    S14: if (Out_cont_cycle == 4'b0101) next = S0;
+         else  next = S14;
+    S15: if (Out_cont_cycle == 4'b0101) next = S0;
+         else  next = S15;
+  
+  endcase
+  end    
+
+  always@(state or Out_cont_cycle or Out_cont_data or Clk_scl) begin
+  Enable_sda = 2'b00;
+  Enable_clk =  2'b00;
+  En_cont_data = 1'b0;
+  SelectPLSR = 3'b000;
+  Load_shiftPLSR = 1'b1;
+  Load_shiftSRPL = 1'b0;
+  Ready = 1'b0;
+  Error = 1'b0;
+  case(state)
+    S0: begin
+    Ready = 1'b1;
+    SelectPLSR = 3'b100; //carrego Save_adr a al ShiftSRPL
+    end
+    S1:begin
+    Enable_sda = 2'b01; //provoco un negedge a Sda
+    SelectPLSR = 3'b100;
+     if (Out_cont_cycle == 4'b0010)
+       Load_shiftPLSR = 1'b0;   //carrego dada a la sortida del shift un cicle abans
+     else
+       Load_shiftPLSR = 1'b1;
+    end
+    S2:begin
+    Enable_sda = 2'b10;
+    Enable_clk = 2'b10;
+    En_cont_data = 1'b1;
+      if (Out_cont_cycle == 4'b0010)
+        Load_shiftPLSR = 1'b0;  //carrego dada a la sortida del shift 
+      else
+        Load_shiftPLSR = 1'b1;  //als demés cicles la dada es manté estable a la sortida
+    end
+    S3:begin
+    Enable_clk = 2'b10; //Scl segueix activat per rebre l'ACK
+    end
+    S8: begin
+    Enable_sda = 2'b10;
+    Enable_clk = 2'b10;
+    En_cont_data = 1'b1;
+    SelectPLSR = 3'b001;
+      if (Out_cont_cycle == 4'b0010)
+        Load_shiftPLSR = 1'b0;  //carrego dada a la sortida del shift 
+      else
+        Load_shiftPLSR = 1'b1;  //als demés cicles la dada es manté estable a la sortida
+    end
+    S9:begin
+    Enable_clk = 2'b10; //Scl segueix activat per rebre l'ACK
+    end
+    S10: begin
+    Enable_sda = 2'b10;
+    Enable_clk = 2'b10;
+    En_cont_data = 1'b1;
+    SelectPLSR = 3'b010;
+      if (Out_cont_cycle == 4'b0010)
+        Load_shiftPLSR = 1'b0;  
+      else
+        Load_shiftPLSR = 1'b1;  
+    end
+    S11:begin
+    Enable_clk = 2'b10; 
+    end
+    S12:begin
+    Enable_sda = 2'b10;
+    Enable_clk = 2'b10;
+    En_cont_data = 1'b1;
+    SelectPLSR = 3'b011;
+      if (Out_cont_cycle == 4'b0010)
+        Load_shiftPLSR = 1'b0;  
+      else
+        Load_shiftPLSR = 1'b1;  
+    end  
+    S13:begin
+    Enable_clk = 2'b10;
+    end
+    S14:begin
+    if (Out_cont_cycle != 4'b0101)begin
+      Enable_clk = 2'b10;
+      Enable_sda = 2'b01;
+    end
+    else
+      Enable_clk = 2'b00;
+    end
+    S15:begin
+    Error = 1'b1;
+    end
+    
+ endcase
+ end
+endmodule
+  
+  
