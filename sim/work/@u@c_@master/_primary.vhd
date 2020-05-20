@@ -17,7 +17,8 @@ entity UC_Master is
         S12             : integer := 12;
         S13             : integer := 13;
         S14             : integer := 14;
-        S15             : integer := 15
+        S15             : integer := 15;
+        S16             : integer := 16
     );
     port(
         Clk             : in     vl_logic;
@@ -27,6 +28,9 @@ entity UC_Master is
         R_W             : in     vl_logic;
         Datain_sda      : in     vl_logic;
         Pointer         : in     vl_logic_vector(7 downto 0);
+        Set_pointer     : in     vl_logic;
+        \Return\        : in     vl_logic;
+        Repeat          : out    vl_logic;
         Out_cont_cycle  : in     vl_logic_vector(3 downto 0);
         Out_cont_data   : in     vl_logic_vector(3 downto 0);
         En_cont_data    : out    vl_logic;

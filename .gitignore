@@ -6,7 +6,7 @@
 *.exe
 *.o
 *.so
-*.bak
+
 # Packages #
 ############
 *.7z
@@ -23,7 +23,8 @@
 *.log
 *.sql
 *.sqlite
-
+*.bak
+*.swp
 # OS generated files #
 ######################
 .DS_Store

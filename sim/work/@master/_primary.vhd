@@ -8,6 +8,7 @@ entity Master is
         Data_in2        : in     vl_logic_vector(7 downto 0);
         Adr             : in     vl_logic_vector(6 downto 0);
         Pointer         : in     vl_logic_vector(7 downto 0);
+        Set_pointer     : in     vl_logic;
         R_W             : in     vl_logic;
         Ready           : out    vl_logic;
         Error           : out    vl_logic;

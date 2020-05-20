@@ -1,4 +1,67 @@
-D:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_clk50MHz_fm.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_clk50MHz_fm.v
+D:/DSSD/ModelFuncional_ArnauQuintana/tb/tb_I2C.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/tb/tb_I2C.v
+Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
+-- Compiling module tb_I2C
+
+Top level modules:
+	tb_I2C
+
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/div_25.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/src/div_25.v
+Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
+-- Compiling module div_25
+
+Top level modules:
+	div_25
+
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/fm/LM75x_fm.v {1 {vlog -work work -nocovercells {D:\DSSD\ModelFuncional_ArnauQuintana\fm\LM75x_fm.v}
+Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
+-- Compiling module LM75x_fm
+
+Top level modules:
+	LM75x_fm
+
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/Contador_rst.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/src/Contador_rst.v
+Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
+-- Compiling module Contador_rst
+
+Top level modules:
+	Contador_rst
+
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/UC_Master.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/src/UC_Master.v
+Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
+-- Compiling module UC_Master
+
+Top level modules:
+	UC_Master
+
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/tb/test_I2C.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/tb/test_I2C.v
+Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
+-- Compiling module test_I2C
+
+Top level modules:
+	test_I2C
+
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_rst_fm.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_rst_fm.v
+Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
+-- Compiling module sys_rst_fm
+
+Top level modules:
+	sys_rst_fm
+
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/div_5.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/src/div_5.v
+Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
+-- Compiling module div_5
+
+Top level modules:
+	div_5
+
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/fm/I2C_cntr_fm.v {1 {vlog -work work -nocovercells {D:\DSSD\ModelFuncional_ArnauQuintana\fm\I2C_cntr_fm.v}
+Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
+-- Compiling module I2C_cntr_fm
+
+Top level modules:
+	I2C_cntr_fm
+
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_clk50MHz_fm.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_clk50MHz_fm.v
 Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling module sys_clk50MHz_fm
 
@@ -19,27 +82,6 @@ Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
 Top level modules:
 	Shift_SRPL_master
 
-} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/div_25.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/src/div_25.v
-Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
--- Compiling module div_25
-
-Top level modules:
-	div_25
-
-} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/tb/tb_I2C.v {1 {vlog -work work -nocovercells {D:\DSSD\ModelFuncional_ArnauQuintana\tb\tb_I2C.v}
-Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
--- Compiling module tb_I2C
-
-Top level modules:
-	tb_I2C
-
-} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/fm/LM75x_fm.v {1 {vlog -work work -nocovercells {D:\DSSD\ModelFuncional_ArnauQuintana\fm\LM75x_fm.v}
-Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
--- Compiling module LM75x_fm
-
-Top level modules:
-	LM75x_fm
-
 } {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/Contador.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/src/Contador.v
 Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling module Contador
@@ -47,32 +89,11 @@ Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
 Top level modules:
 	Contador
 
-} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/div_5.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/src/div_5.v
-Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
--- Compiling module div_5
-
-Top level modules:
-	div_5
-
-} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/UC_Master.v {1 {vlog -work work -nocovercells {D:\DSSD\ModelFuncional_ArnauQuintana\src\UC_Master.v}
-Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
--- Compiling module UC_Master
-
-Top level modules:
-	UC_Master
-
-} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/Master.v {1 {vlog -work work -nocovercells {D:\DSSD\ModelFuncional_ArnauQuintana\src\Master.v}
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/Master.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/src/Master.v
 Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling module Master
 
 Top level modules:
 	Master
-
-} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_rst_fm.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/fm/sys_rst_fm.v
-Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
--- Compiling module sys_rst_fm
-
-Top level modules:
-	sys_rst_fm
 
 } {} {}}

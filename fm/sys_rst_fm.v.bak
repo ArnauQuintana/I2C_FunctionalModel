@@ -54,9 +54,4 @@ task rstOff; begin
 end
 endtask // rstOff
 
-initial begin
-  rstOn;
-end
-
-
 endmodule

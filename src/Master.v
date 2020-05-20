@@ -4,6 +4,7 @@ input [7:0] Data_in,
 input [7:0] Data_in2,
 input [6:0] Adr,
 input [7:0] Pointer,
+input Set_pointer,
 input R_W,
 output Ready,
 output Error,
@@ -39,7 +40,15 @@ input Clk_in);
 	reg [7:0] Save_pointer;
 	always@(Pointer)
 	 Save_pointer = ~Pointer;
-	     
+	
+	wire Repeat;     
+	reg Return = 1'b0;
+	always@(posedge Clk_scl)
+	 if (Repeat == 1'b1)
+	   Return = 1'b1;
+	 else
+	   Return = 1'b0;	
+	
 	wire [3:0] Out_cont_data;
 	wire En_cont_data;
 	Contador Contador1(.En(En_cont_data),  //conta els cicles del rellotge del Scl
@@ -91,6 +100,9 @@ input Clk_in);
   .R_W(R_W),
   .Datain_sda(Datain_sda),
   .Pointer(Pointer),
+  .Set_pointer(Set_pointer),
+  .Repeat(Repeat),
+  .Return(Return),
   .Out_cont_cycle(Out_cont_cycle),
   .Out_cont_data(Out_cont_data),
   .En_cont_data(En_cont_data),
