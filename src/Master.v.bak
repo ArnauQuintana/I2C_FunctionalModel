@@ -8,7 +8,8 @@ input Set_pointer,
 input R_W,
 output Ready,
 output Error,
-output [7:0] Data_out,
+output reg [7:0] Data_out1,
+output reg [7:0] Data_out2,
 output Scl,
 inout Sda,
 input Clk_in);
@@ -87,11 +88,24 @@ input Clk_in);
   
   bufif1 buf_scl(Scl,Gnd,Enable_scl);
  
+  wire [7:0] Out_shiftSRPL;
   wire Load_shiftSRPL;
   Shift_SRPL_master Shift_SRPL_master(.Clk(Clk),
   .Load(Load_shiftSRPL),
   .In(~Datain_sda),
-  .Out(Data_out));
+  .Out(Out_shiftSRPL));
+  
+  wire Select_dataout;
+  always@(Out_shiftSRPL) begin
+    if(Select_dataout) begin
+      Data_out1 = Data_out1;
+      Data_out2 = Out_shiftSRPL;
+    end
+    else begin
+      Data_out1 = Out_shiftSRPL;
+      Data_out2 = Data_out2;
+    end
+  end
   
   UC_Master UC_Master(.Clk(Clk),
   .Clk_scl(Clk_scl),

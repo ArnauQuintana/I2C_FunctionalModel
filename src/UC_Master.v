@@ -15,6 +15,7 @@ output reg Load_shiftPLSR,
 output reg Load_shiftSRPL,
 output reg [1:0] Enable_sda,
 output reg [2:0] SelectPLSR,
+output reg Select_dataout,
 output reg [1:0] Enable_clk,
 output reg Ready,
 output reg Error);
@@ -37,7 +38,7 @@ output reg Error);
             S13 = 5'b1101, //ACK LSB WR
             S14 = 5'b1110, //STOP
             S15 = 5'b1111, //ERROR 
-            S16 = 5'b10000;
+            S16 = 5'b10000; //REPEAT START 
  
   always@(posedge Clk or negedge Rst)
     if (!Rst) state = S0;
@@ -56,8 +57,15 @@ output reg Error);
         else if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && R_W == 1'b1) next = S4;
         else if (Clk_scl == 1'b1 && Datain_sda == 1'b1) next = S0;
         else next = S3; 
-    S4: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0001) next = S5;
+    S4: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0010 && Pointer[1:0] != 2'b01) next = S5;
+        else if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0010 && Pointer[1:0] == 2'b01) next = S7;
         else  next = S4;
+    S5: if (Out_cont_cycle == 4'b0010) next = S6;
+        else next = S5;    
+    S6: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0010) next = S7;
+        else  next = S6;
+    S7: if (Out_cont_cycle == 4'b0010) next = S14;
+        else next = S7;   
     S8: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0001) next = S9;
         else  next = S8;
     S9: if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && Set_pointer == 1'b0) next = S10;
@@ -75,15 +83,12 @@ output reg Error);
     S13: if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && Out_cont_cycle == 4'b0101) next = S14;
          else if (Clk_scl == 1'b1 && Datain_sda == 1'b1 && Out_cont_cycle == 4'b0101) next = S15;
          else next = S13; 
-    
-    
     S14: if (Out_cont_cycle == 4'b0101) next = S0;
          else  next = S14;
     S15: if (Out_cont_cycle == 4'b0101) next = S0;
          else  next = S15;
     S16: if (Out_cont_cycle == 4'b0001 && Return == 1'b1) next = S2;
          else next = S16;
-  
   endcase
   end    
 
@@ -94,6 +99,7 @@ output reg Error);
   SelectPLSR = 3'b000;
   Load_shiftPLSR = 1'b1;
   Load_shiftSRPL = 1'b0;
+  Select_dataout = 1'b0;
   Ready = 1'b0;
   Error = 1'b0;
   case(state)
@@ -108,7 +114,6 @@ output reg Error);
        Load_shiftPLSR = 1'b0;   //carrego dada a la sortida del shift un cicle abans    
       else 
        Load_shiftPLSR = 1'b1;
-       
     end
     S2:begin
     Enable_sda = 2'b10;
@@ -125,10 +130,26 @@ output reg Error);
     S4:begin
     Enable_clk = 2'b10;
     En_cont_data = 1'b1;
-      if (Out_cont_cycle == 4'b0101)
+      if (Out_cont_cycle == 4'b0101 && Out_cont_data != 4'b0000)
         Load_shiftSRPL = 1'b1;  
       else
         Load_shiftSRPL = 1'b0;     
+    end
+    S5:begin
+    Enable_clk = 2'b10;
+    Enable_sda = 2'b01;
+    end
+    S6:begin
+    Enable_clk = 2'b10;
+    En_cont_data = 1'b1;
+    Select_dataout = 1'b1;
+      if (Out_cont_cycle == 4'b0101 && Out_cont_data != 4'b0000)
+        Load_shiftSRPL = 1'b1;  
+      else
+        Load_shiftSRPL = 1'b0;      
+    end
+    S7:begin
+    Enable_clk = 2'b10;
     end
     S8: begin
     Enable_sda = 2'b10;

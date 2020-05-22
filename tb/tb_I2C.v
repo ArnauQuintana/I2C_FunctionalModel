@@ -2,7 +2,7 @@ module tb_I2C();
   
   wire Start,R_W;
   wire [7:0] Data_in,Data_in2,Pointer;
-  wire [7:0] Data_out;
+  wire [7:0] Data_out1,Data_out2;
   wire [6:0] Adr;
 
   sys_clk50MHz_fm Clk50(.Clk(Clk_in));
@@ -19,7 +19,8 @@ module tb_I2C();
   .R_W(R_W),
   .Ready(Ready_master),
   .Error(Error_master),
-  .Data_out(Data_out),
+  .Data_out1(Data_out1),
+  .Data_out2(Data_out2),
   .Scl(Scl),
   .Sda(Sda),
   .Clk_in(Clk_in));

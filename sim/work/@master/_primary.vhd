@@ -12,7 +12,8 @@ entity Master is
         R_W             : in     vl_logic;
         Ready           : out    vl_logic;
         Error           : out    vl_logic;
-        Data_out        : out    vl_logic_vector(7 downto 0);
+        Data_out1       : out    vl_logic_vector(7 downto 0);
+        Data_out2       : out    vl_logic_vector(7 downto 0);
         Scl             : out    vl_logic;
         Sda             : inout  vl_logic;
         Clk_in          : in     vl_logic
