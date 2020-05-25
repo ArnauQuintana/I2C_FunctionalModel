@@ -1,0 +1,194 @@
+|Master
+Rst => Rst.IN3
+Start => Start.IN1
+Data_in[0] => In_shiftPLSR.DATAB
+Data_in[1] => In_shiftPLSR.DATAB
+Data_in[2] => In_shiftPLSR.DATAB
+Data_in[3] => In_shiftPLSR.DATAB
+Data_in[4] => In_shiftPLSR.DATAB
+Data_in[5] => In_shiftPLSR.DATAB
+Data_in[6] => In_shiftPLSR.DATAB
+Data_in[7] => In_shiftPLSR.DATAB
+Data_in2[0] => In_shiftPLSR.DATAB
+Data_in2[1] => In_shiftPLSR.DATAB
+Data_in2[2] => In_shiftPLSR.DATAB
+Data_in2[3] => In_shiftPLSR.DATAB
+Data_in2[4] => In_shiftPLSR.DATAB
+Data_in2[5] => In_shiftPLSR.DATAB
+Data_in2[6] => In_shiftPLSR.DATAB
+Data_in2[7] => In_shiftPLSR.DATAB
+Adr[0] => In_shiftPLSR.DATAA
+Adr[1] => In_shiftPLSR.DATAA
+Adr[2] => In_shiftPLSR.DATAA
+Adr[3] => In_shiftPLSR.DATAA
+Adr[4] => In_shiftPLSR.DATAA
+Adr[5] => In_shiftPLSR.DATAA
+Adr[6] => In_shiftPLSR.DATAA
+Pointer[0] => Pointer[0].IN1
+Pointer[1] => Pointer[1].IN1
+Pointer[2] => Pointer[2].IN1
+Pointer[3] => Pointer[3].IN1
+Pointer[4] => Pointer[4].IN1
+Pointer[5] => Pointer[5].IN1
+Pointer[6] => Pointer[6].IN1
+Pointer[7] => Pointer[7].IN1
+Set_pointer => Set_pointer.IN1
+R_W => R_W.IN1
+Sda <> buf_sda
+Clk_in => Clk_in.IN1
+
+
+|Master|div_25:div25
+clk_in => B1.CLK
+clk_in => A1.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => Tff_B.CLK
+
+
+|Master|div_5:div_5
+clk_in => B1.CLK
+clk_in => A1.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => Tff_B.CLK
+
+
+|Master|Contador_rst:Contador1
+En => Out.OUTPUTSELECT
+En => Out.OUTPUTSELECT
+En => Out.OUTPUTSELECT
+En => Out.OUTPUTSELECT
+Rst => Out[0]~reg0.ACLR
+Rst => Out[1]~reg0.ACLR
+Rst => Out[2]~reg0.ACLR
+Rst => Out[3]~reg0.ACLR
+Clk => Out[0]~reg0.CLK
+Clk => Out[1]~reg0.CLK
+Clk => Out[2]~reg0.CLK
+Clk => Out[3]~reg0.CLK
+
+
+|Master|Contador:Contador2
+En => Out.OUTPUTSELECT
+En => Out.OUTPUTSELECT
+En => Out.OUTPUTSELECT
+En => Out.OUTPUTSELECT
+Clk => Out[0]~reg0.CLK
+Clk => Out[1]~reg0.CLK
+Clk => Out[2]~reg0.CLK
+Clk => Out[3]~reg0.CLK
+
+
+|Master|Shift_PLSR_master:Shift_PLSR_master
+In[0] => temp.DATAB
+In[1] => temp.DATAB
+In[2] => temp.DATAB
+In[3] => temp.DATAB
+In[4] => temp.DATAB
+In[5] => temp.DATAB
+In[6] => temp.DATAB
+In[7] => temp.DATAB
+Load => always1.IN1
+Load => always1.IN1
+Load => always0.IN1
+Clk => temp[0].CLK
+Clk => temp[1].CLK
+Clk => temp[2].CLK
+Clk => temp[3].CLK
+Clk => temp[4].CLK
+Clk => temp[5].CLK
+Clk => temp[6].CLK
+Clk => temp[7].CLK
+Clk => Out~reg0.CLK
+Clk => Cont[0].CLK
+Clk => Cont[1].CLK
+Clk => Cont[2].CLK
+Clk => Cont[3].CLK
+Rst => temp[0].ACLR
+Rst => temp[1].ACLR
+Rst => temp[2].ACLR
+Rst => temp[3].ACLR
+Rst => temp[4].ACLR
+Rst => temp[5].ACLR
+Rst => temp[6].ACLR
+Rst => temp[7].ACLR
+Rst => Out~reg0.ACLR
+Rst => Cont[0].ACLR
+Rst => Cont[1].ACLR
+Rst => Cont[2].ACLR
+Rst => Cont[3].ACLR
+
+
+|Master|Shift_SRPL_master:Shift_SRPL_master
+Clk => temp[0].CLK
+Clk => temp[1].CLK
+Clk => temp[2].CLK
+Clk => temp[3].CLK
+Clk => temp[4].CLK
+Clk => temp[5].CLK
+Clk => temp[6].CLK
+Clk => temp[7].CLK
+Load => temp[0].ENA
+Load => temp[1].ENA
+Load => temp[2].ENA
+Load => temp[3].ENA
+Load => temp[4].ENA
+Load => temp[5].ENA
+Load => temp[6].ENA
+Load => temp[7].ENA
+In => temp[0].DATAIN
+
+
+|Master|UC_Master:UC_Master
+Clk => state~1.DATAIN
+Clk_scl => always1.IN0
+Clk_scl => always1.IN0
+Rst => state~3.DATAIN
+Start => Selector1.IN3
+Start => Selector0.IN1
+R_W => always1.IN1
+R_W => always1.IN1
+Datain_sda => always1.IN1
+Datain_sda => always1.IN1
+Pointer[0] => Equal1.IN0
+Pointer[1] => always1.IN1
+Pointer[1] => Equal1.IN1
+Pointer[1] => always1.IN1
+Pointer[2] => ~NO_FANOUT~
+Pointer[3] => ~NO_FANOUT~
+Pointer[4] => ~NO_FANOUT~
+Pointer[5] => ~NO_FANOUT~
+Pointer[6] => ~NO_FANOUT~
+Pointer[7] => ~NO_FANOUT~
+Set_pointer => always1.IN1
+Set_pointer => always1.IN1
+Return => always1.IN1
+Return => always2.IN1
+Out_cont_cycle[0] => Equal2.IN3
+Out_cont_cycle[0] => Equal3.IN1
+Out_cont_cycle[0] => Equal5.IN0
+Out_cont_cycle[1] => Equal2.IN0
+Out_cont_cycle[1] => Equal3.IN3
+Out_cont_cycle[1] => Equal5.IN3
+Out_cont_cycle[2] => Equal2.IN2
+Out_cont_cycle[2] => Equal3.IN0
+Out_cont_cycle[2] => Equal5.IN2
+Out_cont_cycle[3] => Equal2.IN1
+Out_cont_cycle[3] => Equal3.IN2
+Out_cont_cycle[3] => Equal5.IN1
+Out_cont_data[0] => Equal0.IN3
+Out_cont_data[0] => Equal4.IN3
+Out_cont_data[1] => Equal0.IN2
+Out_cont_data[1] => Equal4.IN2
+Out_cont_data[2] => Equal0.IN1
+Out_cont_data[2] => Equal4.IN1
+Out_cont_data[3] => Equal0.IN0
+Out_cont_data[3] => Equal4.IN0
+
+

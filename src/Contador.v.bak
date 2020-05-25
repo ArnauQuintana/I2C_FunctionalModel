@@ -1,20 +1,18 @@
 module Contador(input En,
 input Clk,
-output reg [4:0] Out = 5'b0);
+output reg [3:0] Out = 4'b0);
 
-  parameter M = 5'b01000;
+  parameter M = 4'b1000;
   
-  always@(posedge Clk)
+  always@(posedge Clk or negedge Rst)
     if (!En)
-      Out <= 5'b00000;
+      Out <= 4'b0000;
     else begin
       if (Out == M)
-        Out <= 5'b00001;
+        Out <= 4'b0001;
       else
-        Out <= Out + 5'b00001;
+        Out <= Out + 4'b0001;
     end
     
 endmodule  
-
-
 

@@ -8,8 +8,8 @@ input Set_pointer,
 input R_W,
 output Ready,
 output Error,
-output reg [7:0] Data_out1,
-output reg [7:0] Data_out2,
+output reg [7:0] Data_out,
+output Data_valid,
 output Scl,
 inout Sda,
 input Clk_in);
@@ -17,10 +17,12 @@ input Clk_in);
   supply0 Gnd;
   supply1 Vcc;
   
+  wire Clk;
   div_25 div25(.clk_in(Clk_in),
   .clk_out(Clk));
   
-  div_5 div_5(.clk_in(Clk),
+  wire Clk_scl;
+  div_5 div5(.clk_in(Clk),
   .clk_out(Clk_scl));
  
 	wire Datain_sda;
@@ -52,14 +54,15 @@ input Clk_in);
 	
 	wire [3:0] Out_cont_data;
 	wire En_cont_data;
-	Contador Contador1(.En(En_cont_data),  //conta els cicles del rellotge del Scl
+	Contador_rst Contador_scl(.En(En_cont_data),  //conta els cicles del rellotge del Scl
 	.Clk(Clk_scl),
+	.Rst(Rst),
 	.Out(Out_cont_data));
   
   wire [3:0] Out_cont_cycle;
   wire En_cont_cycle;
   assign En_cont_cycle = 1'b1;
-  Contador #(5)Contador2(.En(En_cont_cycle),  //conta els cicles del rellotge del master
+  Contador #(5)Contador_clk(.En(En_cont_cycle),  //conta els cicles del rellotge del master
   .Clk(Clk),
   .Out(Out_cont_cycle));
   
@@ -75,6 +78,7 @@ input Clk_in);
   Shift_PLSR_master Shift_PLSR_master(.In(In_shiftPLSR),
   .Load(Load_shiftPLSR),
   .Clk(Clk),
+  .Rst(Rst),
   .Out(Out_shiftPLSR));
   
   wire [1:0] Enable_sda;
@@ -95,18 +99,9 @@ input Clk_in);
   .In(~Datain_sda),
   .Out(Out_shiftSRPL));
   
-  wire Select_dataout;
-  always@(Out_shiftSRPL) begin
-    if(Select_dataout) begin
-      Data_out1 = Data_out1;
-      Data_out2 = Out_shiftSRPL;
-    end
-    else begin
-      Data_out1 = Out_shiftSRPL;
-      Data_out2 = Data_out2;
-    end
-  end
-  
+  always@(Out_shiftSRPL) 
+    Data_out = Out_shiftSRPL;
+        
   UC_Master UC_Master(.Clk(Clk),
   .Clk_scl(Clk_scl),
   .Rst(Rst),
@@ -124,9 +119,9 @@ input Clk_in);
   .Load_shiftSRPL(Load_shiftSRPL),
   .Enable_sda(Enable_sda),
   .SelectPLSR(SelectPLSR),
-  .Select_dataout(Select_dataout),
   .Enable_clk(Enable_clk),
   .Ready(Ready),
+  .Data_valid(Data_valid),
   .Error(Error));
 
 endmodule

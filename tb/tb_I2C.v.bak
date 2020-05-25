@@ -19,8 +19,8 @@ module tb_I2C();
   .R_W(R_W),
   .Ready(Ready_master),
   .Error(Error_master),
-  .Data_out1(Data_out1),
-  .Data_out2(Data_out2),
+  .Data_out(Data_out),
+  .Data_valid(Data_valid),
   .Scl(Scl),
   .Sda(Sda),
   .Clk_in(Clk_in));

@@ -22,7 +22,7 @@ input Set_pointer);
   .Out(Out_cont));
 
   reg R_W;
-  reg [1:0] Pointer;    
+  reg [1:0] Pointer = 2'bxx;    
   initial begin
   En_cont = 1'b0;
   R_W = 1'bx;

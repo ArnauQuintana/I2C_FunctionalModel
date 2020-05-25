@@ -6,7 +6,9 @@ output reg [3:0] Out = 4'b0);
   parameter M = 4'b1000;
   
   always@(posedge Clk or negedge Rst)
-    if (!En || !Rst)
+    if (!Rst)
+		Out <= 4'b0000;
+	 else if (!En)
       Out <= 4'b0000;
     else begin
       if (Out == M)

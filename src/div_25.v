@@ -1,11 +1,9 @@
-`timescale 1ns / 1ps
-
 module div_25(
 	input			clk_in,
 	output 		clk_out
     );
 
-reg  [4:0] count = 4'b0;
+reg  [4:0] count = 5'b0;
 reg 		  A1 = 0;
 reg 	     B1 = 0;
 reg	 	  Tff_A = 0;
@@ -28,7 +26,7 @@ always@(posedge clk_in)
 			end	
 		else
 			begin
-				count <= count + 1;
+				count <= count + 5'b0001;
 			end	
 	end
 

@@ -1,0 +1,221 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1000mV 85C Model Setup 'div_25:div25|Tff_A'
+Slack : -4.982
+TNS   : -147.504
+
+Type  : Slow 1000mV 85C Model Setup 'Clk_in'
+Slack : -1.811
+TNS   : -11.165
+
+Type  : Slow 1000mV 85C Model Setup 'UC_Master:UC_Master|state.S6'
+Slack : -1.793
+TNS   : -19.763
+
+Type  : Slow 1000mV 85C Model Setup 'div_5:div_5|Tff_A'
+Slack : -1.503
+TNS   : -5.293
+
+Type  : Slow 1000mV 85C Model Setup 'div_5:div_5|A1'
+Slack : -0.082
+TNS   : -0.082
+
+Type  : Slow 1000mV 85C Model Setup 'div_25:div25|A1'
+Slack : 0.062
+TNS   : 0.000
+
+Type  : Slow 1000mV 85C Model Hold 'div_25:div25|Tff_A'
+Slack : -1.122
+TNS   : -12.496
+
+Type  : Slow 1000mV 85C Model Hold 'div_5:div_5|Tff_A'
+Slack : -0.837
+TNS   : -2.971
+
+Type  : Slow 1000mV 85C Model Hold 'div_5:div_5|A1'
+Slack : 0.053
+TNS   : 0.000
+
+Type  : Slow 1000mV 85C Model Hold 'div_25:div25|A1'
+Slack : 0.164
+TNS   : 0.000
+
+Type  : Slow 1000mV 85C Model Hold 'UC_Master:UC_Master|state.S6'
+Slack : 0.313
+TNS   : 0.000
+
+Type  : Slow 1000mV 85C Model Hold 'Clk_in'
+Slack : 0.521
+TNS   : 0.000
+
+Type  : Slow 1000mV 85C Model Minimum Pulse Width 'Clk_in'
+Slack : -3.000
+TNS   : -17.104
+
+Type  : Slow 1000mV 85C Model Minimum Pulse Width 'div_25:div25|Tff_A'
+Slack : -1.763
+TNS   : -86.387
+
+Type  : Slow 1000mV 85C Model Minimum Pulse Width 'div_5:div_5|Tff_A'
+Slack : -1.763
+TNS   : -8.815
+
+Type  : Slow 1000mV 85C Model Minimum Pulse Width 'div_25:div25|A1'
+Slack : -1.763
+TNS   : -1.763
+
+Type  : Slow 1000mV 85C Model Minimum Pulse Width 'div_5:div_5|A1'
+Slack : -1.763
+TNS   : -1.763
+
+Type  : Slow 1000mV 85C Model Minimum Pulse Width 'UC_Master:UC_Master|state.S6'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1000mV 0C Model Setup 'div_25:div25|Tff_A'
+Slack : -4.751
+TNS   : -140.766
+
+Type  : Slow 1000mV 0C Model Setup 'UC_Master:UC_Master|state.S6'
+Slack : -1.781
+TNS   : -19.742
+
+Type  : Slow 1000mV 0C Model Setup 'Clk_in'
+Slack : -1.733
+TNS   : -10.587
+
+Type  : Slow 1000mV 0C Model Setup 'div_5:div_5|Tff_A'
+Slack : -1.422
+TNS   : -4.968
+
+Type  : Slow 1000mV 0C Model Setup 'div_5:div_5|A1'
+Slack : -0.040
+TNS   : -0.040
+
+Type  : Slow 1000mV 0C Model Setup 'div_25:div25|A1'
+Slack : 0.085
+TNS   : 0.000
+
+Type  : Slow 1000mV 0C Model Hold 'div_25:div25|Tff_A'
+Slack : -1.076
+TNS   : -11.640
+
+Type  : Slow 1000mV 0C Model Hold 'div_5:div_5|Tff_A'
+Slack : -0.748
+TNS   : -2.592
+
+Type  : Slow 1000mV 0C Model Hold 'div_5:div_5|A1'
+Slack : 0.017
+TNS   : 0.000
+
+Type  : Slow 1000mV 0C Model Hold 'div_25:div25|A1'
+Slack : 0.174
+TNS   : 0.000
+
+Type  : Slow 1000mV 0C Model Hold 'UC_Master:UC_Master|state.S6'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Slow 1000mV 0C Model Hold 'Clk_in'
+Slack : 0.504
+TNS   : 0.000
+
+Type  : Slow 1000mV 0C Model Minimum Pulse Width 'Clk_in'
+Slack : -3.000
+TNS   : -17.104
+
+Type  : Slow 1000mV 0C Model Minimum Pulse Width 'div_25:div25|Tff_A'
+Slack : -1.763
+TNS   : -86.387
+
+Type  : Slow 1000mV 0C Model Minimum Pulse Width 'div_5:div_5|Tff_A'
+Slack : -1.763
+TNS   : -8.815
+
+Type  : Slow 1000mV 0C Model Minimum Pulse Width 'div_25:div25|A1'
+Slack : -1.763
+TNS   : -1.763
+
+Type  : Slow 1000mV 0C Model Minimum Pulse Width 'div_5:div_5|A1'
+Slack : -1.763
+TNS   : -1.763
+
+Type  : Slow 1000mV 0C Model Minimum Pulse Width 'UC_Master:UC_Master|state.S6'
+Slack : 0.420
+TNS   : 0.000
+
+Type  : Fast 1000mV 0C Model Setup 'div_25:div25|Tff_A'
+Slack : -2.520
+TNS   : -69.293
+
+Type  : Fast 1000mV 0C Model Setup 'UC_Master:UC_Master|state.S6'
+Slack : -0.656
+TNS   : -4.602
+
+Type  : Fast 1000mV 0C Model Setup 'Clk_in'
+Slack : -0.555
+TNS   : -2.699
+
+Type  : Fast 1000mV 0C Model Setup 'div_5:div_5|Tff_A'
+Slack : -0.405
+TNS   : -1.079
+
+Type  : Fast 1000mV 0C Model Setup 'div_5:div_5|A1'
+Slack : 0.209
+TNS   : 0.000
+
+Type  : Fast 1000mV 0C Model Setup 'div_25:div25|A1'
+Slack : 0.279
+TNS   : 0.000
+
+Type  : Fast 1000mV 0C Model Hold 'div_25:div25|Tff_A'
+Slack : -0.723
+TNS   : -8.965
+
+Type  : Fast 1000mV 0C Model Hold 'div_5:div_5|Tff_A'
+Slack : -0.555
+TNS   : -2.026
+
+Type  : Fast 1000mV 0C Model Hold 'div_5:div_5|A1'
+Slack : 0.016
+TNS   : 0.000
+
+Type  : Fast 1000mV 0C Model Hold 'div_25:div25|A1'
+Slack : 0.047
+TNS   : 0.000
+
+Type  : Fast 1000mV 0C Model Hold 'UC_Master:UC_Master|state.S6'
+Slack : 0.133
+TNS   : 0.000
+
+Type  : Fast 1000mV 0C Model Hold 'Clk_in'
+Slack : 0.279
+TNS   : 0.000
+
+Type  : Fast 1000mV 0C Model Minimum Pulse Width 'Clk_in'
+Slack : -3.000
+TNS   : -17.104
+
+Type  : Fast 1000mV 0C Model Minimum Pulse Width 'div_25:div25|Tff_A'
+Slack : -1.763
+TNS   : -86.387
+
+Type  : Fast 1000mV 0C Model Minimum Pulse Width 'div_5:div_5|Tff_A'
+Slack : -1.763
+TNS   : -8.815
+
+Type  : Fast 1000mV 0C Model Minimum Pulse Width 'div_25:div25|A1'
+Slack : -1.763
+TNS   : -1.763
+
+Type  : Fast 1000mV 0C Model Minimum Pulse Width 'div_5:div_5|A1'
+Slack : -1.763
+TNS   : -1.763
+
+Type  : Fast 1000mV 0C Model Minimum Pulse Width 'UC_Master:UC_Master|state.S6'
+Slack : 0.381
+TNS   : 0.000
+
+------------------------------------------------------------

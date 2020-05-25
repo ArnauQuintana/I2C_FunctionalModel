@@ -15,9 +15,9 @@ output reg Load_shiftPLSR,
 output reg Load_shiftSRPL,
 output reg [1:0] Enable_sda,
 output reg [2:0] SelectPLSR,
-output reg Select_dataout,
 output reg [1:0] Enable_clk,
 output reg Ready,
+output reg Data_valid,
 output reg Error);
   
   reg [4:0] state,next;
@@ -44,7 +44,7 @@ output reg Error);
     if (!Rst) state = S0;
     else      state = next;
       
-  always@(state or Out_cont_data or Start or Out_cont_cycle or Datain_sda or Clk_scl or R_W or Return) begin
+  always@(state or Out_cont_data or Start or Out_cont_cycle or Datain_sda or Clk_scl or R_W or Return or Pointer or Set_pointer) begin
   next = 4'bx;
   case(state)
     S0: if (Start) next = S1;
@@ -99,9 +99,10 @@ output reg Error);
   SelectPLSR = 3'b000;
   Load_shiftPLSR = 1'b1;
   Load_shiftSRPL = 1'b0;
-  Select_dataout = 1'b0;
   Ready = 1'b0;
+  Data_valid = 1'b0;  //informa al usuari quan la dada a la Data_out és vàlida
   Error = 1'b0;
+  Repeat = 1'b0; //si = 1, indica que estem al estat per repetir Start
   case(state)
     S0: begin
     Ready = 1'b1;
@@ -138,11 +139,11 @@ output reg Error);
     S5:begin
     Enable_clk = 2'b10;
     Enable_sda = 2'b01;
+    Data_valid = 1'b1;
     end
     S6:begin
     Enable_clk = 2'b10;
     En_cont_data = 1'b1;
-    Select_dataout = 1'b1;
       if (Out_cont_cycle == 4'b0101 && Out_cont_data != 4'b0000)
         Load_shiftSRPL = 1'b1;  
       else
@@ -150,6 +151,7 @@ output reg Error);
     end
     S7:begin
     Enable_clk = 2'b10;
+    Data_valid = 1'b1;
     end
     S8: begin
     Enable_sda = 2'b10;

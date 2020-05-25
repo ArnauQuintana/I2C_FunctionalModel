@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module div_5(
 	input			clk_in,
 	output 		clk_out
@@ -28,7 +26,7 @@ always@(posedge clk_in)
 			end	
 		else
 			begin
-				count <= count + 1;
+				count <= count + 4'b0001;
 			end	
 	end
 

@@ -5,6 +5,7 @@ entity Shift_PLSR_master is
         \In\            : in     vl_logic_vector(7 downto 0);
         Load            : in     vl_logic;
         Clk             : in     vl_logic;
+        Rst             : in     vl_logic;
         \Out\           : out    vl_logic
     );
 end Shift_PLSR_master;

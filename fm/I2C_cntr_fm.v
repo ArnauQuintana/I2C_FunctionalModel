@@ -10,14 +10,13 @@ input Error,
 input Ready);
 
 initial begin
-  
-  Set_pointer = 1'b1;
+  Set_pointer = 1'b0;
   Pointer = 8'b00000010;
-  Data_in = 8'b11001101;
-  Data_in2 = 8'b00110010;
+  Data_in = 8'b10011001;
+  Data_in2 = 8'b00110001;
   Adr = 7'b1001101;
-  R_W = 1'b1;
-  #1000 Start = 1'b1;
+  R_W = 1'b0;
+  #100 Start = 1'b1;
   
   
 end

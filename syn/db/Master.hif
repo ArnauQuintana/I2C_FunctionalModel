@@ -1,0 +1,393 @@
+Quartus II
+Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
+15
+1293
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+Contador_rst
+# storage
+db|Master.(3).cnf
+db|Master.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|dssd|modelfuncional_arnauquintana|src|contador_rst.v
+78e961e3d2eae34e85d1a766499101b
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+M
+1000
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+Contador_rst:Contador1
+}
+# macro_sequence
+
+# end
+# entity
+Contador
+# storage
+db|Master.(4).cnf
+db|Master.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|dssd|modelfuncional_arnauquintana|src|contador.v
+ebb2c6cff36ece9eef613de3e32ac5
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+M
+5
+PARAMETER_SIGNED_DEC
+USR
+}
+# hierarchies {
+Contador:Contador2
+}
+# macro_sequence
+
+# end
+# entity
+Shift_PLSR_master
+# storage
+db|Master.(5).cnf
+db|Master.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|dssd|modelfuncional_arnauquintana|src|shift_plsr_master.v
+ccc8a5c82e4f0bc2e8b80a01d3db9
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+Shift_PLSR_master:Shift_PLSR_master
+}
+# macro_sequence
+
+# end
+# entity
+Shift_SRPL_master
+# storage
+db|Master.(6).cnf
+db|Master.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|dssd|modelfuncional_arnauquintana|src|shift_srpl_master.v
+4abd4f3aa8e3a2120ec6567ec9e3b9
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+Shift_SRPL_master:Shift_SRPL_master
+}
+# macro_sequence
+
+# end
+# entity
+Master
+# storage
+db|Master.(0).cnf
+db|Master.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|dssd|modelfuncional_arnauquintana|src|master.v
+9929b2f81168869b5821fb562d1d6
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+div_25
+# storage
+db|Master.(1).cnf
+db|Master.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|dssd|modelfuncional_arnauquintana|src|div_25.v
+96402657b4e9e8bc477b4f19529805b
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+div_25:div25
+}
+# macro_sequence
+
+# end
+# entity
+div_5
+# storage
+db|Master.(2).cnf
+db|Master.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|dssd|modelfuncional_arnauquintana|src|div_5.v
+e32d90148bc9253b367353bbe73185
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+div_5:div_5
+}
+# macro_sequence
+
+# end
+# entity
+UC_Master
+# storage
+db|Master.(7).cnf
+db|Master.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+|dssd|modelfuncional_arnauquintana|src|uc_master.v
+c02befd1014fe61133255f815e1ab
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+S0
+00000
+PARAMETER_UNSIGNED_BIN
+DEF
+S1
+00001
+PARAMETER_UNSIGNED_BIN
+DEF
+S2
+00010
+PARAMETER_UNSIGNED_BIN
+DEF
+S3
+00011
+PARAMETER_UNSIGNED_BIN
+DEF
+S4
+00100
+PARAMETER_UNSIGNED_BIN
+DEF
+S5
+00101
+PARAMETER_UNSIGNED_BIN
+DEF
+S6
+00110
+PARAMETER_UNSIGNED_BIN
+DEF
+S7
+00111
+PARAMETER_UNSIGNED_BIN
+DEF
+S8
+01000
+PARAMETER_UNSIGNED_BIN
+DEF
+S9
+01001
+PARAMETER_UNSIGNED_BIN
+DEF
+S10
+01010
+PARAMETER_UNSIGNED_BIN
+DEF
+S11
+01011
+PARAMETER_UNSIGNED_BIN
+DEF
+S12
+01100
+PARAMETER_UNSIGNED_BIN
+DEF
+S13
+01101
+PARAMETER_UNSIGNED_BIN
+DEF
+S14
+01110
+PARAMETER_UNSIGNED_BIN
+DEF
+S15
+01111
+PARAMETER_UNSIGNED_BIN
+DEF
+S16
+10000
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+UC_Master:UC_Master
+}
+# macro_sequence
+
+# end
+# complete
+

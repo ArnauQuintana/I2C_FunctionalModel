@@ -38,9 +38,9 @@ entity UC_Master is
         Load_shiftSRPL  : out    vl_logic;
         Enable_sda      : out    vl_logic_vector(1 downto 0);
         SelectPLSR      : out    vl_logic_vector(2 downto 0);
-        Select_dataout  : out    vl_logic;
         Enable_clk      : out    vl_logic_vector(1 downto 0);
         Ready           : out    vl_logic;
+        Data_valid      : out    vl_logic;
         Error           : out    vl_logic
     );
 end UC_Master;
