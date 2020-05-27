@@ -2,35 +2,35 @@ library verilog;
 use verilog.vl_types.all;
 entity UC_Master is
     generic(
-        S0              : integer := 0;
-        S1              : integer := 1;
-        S2              : integer := 2;
-        S3              : integer := 3;
-        S4              : integer := 4;
-        S5              : integer := 5;
-        S6              : integer := 6;
-        S7              : integer := 7;
-        S8              : integer := 8;
-        S9              : integer := 9;
-        S10             : integer := 10;
-        S11             : integer := 11;
-        S12             : integer := 12;
-        S13             : integer := 13;
-        S14             : integer := 14;
-        S15             : integer := 15;
-        S16             : integer := 16
+        IDLE            : integer := 0;
+        \START\         : integer := 1;
+        ADRESS          : integer := 2;
+        ACK_ADRESS      : integer := 3;
+        MSB_RD          : integer := 4;
+        ACK_MSB_RD      : integer := 5;
+        LSB_RD          : integer := 6;
+        NACK_LSB_RD     : integer := 7;
+        \POINTER\       : integer := 8;
+        ACK_POINTER     : integer := 9;
+        MSB_WR          : integer := 10;
+        ACK_MSB_WR      : integer := 11;
+        LSB_WR          : integer := 12;
+        ACK_LSB_WR      : integer := 13;
+        STOP            : integer := 14;
+        \ERROR\         : integer := 15;
+        \REPEAT\        : integer := 16
     );
     port(
         Clk             : in     vl_logic;
         Clk_scl         : in     vl_logic;
         Rst             : in     vl_logic;
-        Start           : in     vl_logic;
+        \Start\         : in     vl_logic;
         R_W             : in     vl_logic;
         Datain_sda      : in     vl_logic;
-        Pointer         : in     vl_logic_vector(7 downto 0);
+        \Pointer\       : in     vl_logic_vector(7 downto 0);
         Set_pointer     : in     vl_logic;
         \Return\        : in     vl_logic;
-        Repeat          : out    vl_logic;
+        \Repeat\        : out    vl_logic;
         Out_cont_cycle  : in     vl_logic_vector(3 downto 0);
         Out_cont_data   : in     vl_logic_vector(3 downto 0);
         En_cont_data    : out    vl_logic;
@@ -41,6 +41,6 @@ entity UC_Master is
         Enable_clk      : out    vl_logic_vector(1 downto 0);
         Ready           : out    vl_logic;
         Data_valid      : out    vl_logic;
-        Error           : out    vl_logic
+        \Error\         : out    vl_logic
     );
 end UC_Master;

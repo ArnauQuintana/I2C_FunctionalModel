@@ -8,7 +8,7 @@ input Set_pointer,
 input R_W,
 output Ready,
 output Error,
-output reg [7:0] Data_out,
+output [7:0] Data_out,
 output Data_valid,
 output Scl,
 inout Sda,
@@ -29,20 +29,32 @@ input Clk_in);
 	buf buf1(Datain_sda,Sda);
 		
 	reg [7:0] Save_datain;
-	always@(Data_in)
+	always@(posedge Clk)
+	if(Ready)
 	  Save_datain = ~Data_in;
+	else
+	  Save_datain = Data_in;
 	  
 	reg [7:0] Save_datain2;
-	always@(Data_in2)
-	 Save_datain2 = ~Data_in2;
-	 
+	always@(posedge Clk)
+	 if(Ready) 
+	   Save_datain2 = ~Data_in2;
+	 else
+	   Save_datain2 = Save_datain2;	
+	
 	reg [7:0] Save_adr;
-	always@(Adr or R_W)
-	  Save_adr = ~{Adr,R_W}; 
+	always@(posedge Clk)
+	  if(Ready)	  
+	    Save_adr = ~{Adr,R_W}; 
+	  else 
+	    Save_adr = Save_adr;
 	  
 	reg [7:0] Save_pointer;
-	always@(Pointer)
-	 Save_pointer = ~Pointer;
+	always@(posedge Clk)
+	 if (Ready)
+	   Save_pointer = ~Pointer;
+	 else
+	   Save_pointer = Save_pointer;
 	
 	wire Repeat;     
 	reg Return = 1'b0;
@@ -62,7 +74,8 @@ input Clk_in);
   wire [3:0] Out_cont_cycle;
   wire En_cont_cycle;
   assign En_cont_cycle = 1'b1;
-  Contador #(5)Contador_clk(.En(En_cont_cycle),  //conta els cicles del rellotge del master
+  Contador_rst #(5)Contador_clk(.En(En_cont_cycle),  //conta els cicles del rellotge del master
+  .Rst(Rst),
   .Clk(Clk),
   .Out(Out_cont_cycle));
   
@@ -92,15 +105,12 @@ input Clk_in);
   
   bufif1 buf_scl(Scl,Gnd,Enable_scl);
  
-  wire [7:0] Out_shiftSRPL;
   wire Load_shiftSRPL;
   Shift_SRPL_master Shift_SRPL_master(.Clk(Clk),
+  .Rst(Rst),
   .Load(Load_shiftSRPL),
   .In(~Datain_sda),
-  .Out(Out_shiftSRPL));
-  
-  always@(Out_shiftSRPL) 
-    Data_out = Out_shiftSRPL;
+  .Out(Data_out));
         
   UC_Master UC_Master(.Clk(Clk),
   .Clk_scl(Clk_scl),

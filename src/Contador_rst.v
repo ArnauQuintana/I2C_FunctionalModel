@@ -10,7 +10,7 @@ output reg [3:0] Out = 4'b0);
 		Out <= 4'b0000;
 	 else if (!En)
       Out <= 4'b0000;
-    else begin
+   else begin
       if (Out == M)
         Out <= 4'b0001;
       else
