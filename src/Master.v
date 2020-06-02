@@ -24,42 +24,49 @@ input Clk_in);
   wire Clk_scl;
   div_5 div5(.clk_in(Clk),
   .clk_out(Clk_scl));
- 
-	wire Datain_sda;
-	buf buf1(Datain_sda,Sda);
-		
+ 	
 	reg [7:0] Save_datain;
-	always@(posedge Clk)
-	if(Ready)
+	always@(posedge Clk or negedge Rst)
+	if (!Rst)
+	  Save_datain = 8'b0;
+	else if(Ready)
 	  Save_datain = ~Data_in;
 	else
 	  Save_datain = Data_in;
 	  
 	reg [7:0] Save_datain2;
-	always@(posedge Clk)
-	 if(Ready) 
+	always@(posedge Clk or negedge Rst)
+	 if (!Rst)
+	   Save_datain2 = 8'b0;
+	 else if(Ready) 
 	   Save_datain2 = ~Data_in2;
 	 else
 	   Save_datain2 = Save_datain2;	
 	
 	reg [7:0] Save_adr;
-	always@(posedge Clk)
-	  if(Ready)	  
+	always@(posedge Clk or negedge Rst)
+	  if (!Rst)
+	    Save_adr = 8'b0;
+	  else if(Ready)	  
 	    Save_adr = ~{Adr,R_W}; 
 	  else 
 	    Save_adr = Save_adr;
 	  
 	reg [7:0] Save_pointer;
-	always@(posedge Clk)
-	 if (Ready)
+	always@(posedge Clk or negedge Rst)
+	 if (!Rst)
+	   Save_pointer = 8'b0;
+	 else if (Ready)
 	   Save_pointer = ~Pointer;
 	 else
 	   Save_pointer = Save_pointer;
 	
 	wire Repeat;     
 	reg Return = 1'b0;
-	always@(posedge Clk_scl)
-	 if (Repeat == 1'b1)
+	always@(posedge Clk_scl or negedge Rst)
+	 if (!Rst)
+	   Return = 1'b0;
+	 else if (Repeat)
 	   Return = 1'b1;
 	 else
 	   Return = 1'b0;	
@@ -105,7 +112,8 @@ input Clk_in);
   
   bufif1 buf_scl(Scl,Gnd,Enable_scl);
  
-  wire Load_shiftSRPL;
+  wire Load_shiftSRPL,Datain_sda;
+  buf buf1(Datain_sda,Sda);
   Shift_SRPL_master Shift_SRPL_master(.Clk(Clk),
   .Rst(Rst),
   .Load(Load_shiftSRPL),

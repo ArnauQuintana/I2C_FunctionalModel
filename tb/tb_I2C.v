@@ -27,7 +27,7 @@ module tb_I2C();
   
   LM75x_fm LM75x_fm(.Sda(Sda),
   .Scl(Scl),
-  .Set_pointer(Set_pointer));
+  .Rst(Rst));
   
   I2C_cntr_fm I2C_cntr_fm(
   .Adr(Adr),

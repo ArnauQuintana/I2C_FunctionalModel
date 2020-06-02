@@ -26,8 +26,7 @@ module tb_I2C();
   .Clk_in(Clk_in));
   
   LM75x_fm LM75x_fm(.Sda(Sda),
-  .Scl(Scl),
-  .Set_pointer(Set_pointer));
+  .Scl(Scl));
   
   I2C_cntr_fm I2C_cntr_fm(
   .Adr(Adr),
@@ -42,7 +41,6 @@ module tb_I2C();
     
   pullup(Sda);   
   pullup(Scl);
-  
 
 endmodule
 

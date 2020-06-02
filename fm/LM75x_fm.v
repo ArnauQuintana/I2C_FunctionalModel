@@ -1,14 +1,13 @@
 module LM75x_fm(inout Sda,
-input Scl);
+input Scl,
+input Rst);
 
   reg [15:0] Temp = 16'b1001100100110001;
   
   reg Enable_sda = 1'b0;
   bufif1(Sda,1'b0,Enable_sda);
   
-  reg Stop,Start;
-  always@(posedge Sda)
-    Stop = Scl;
+  reg Start;
   always@(negedge Sda)
     Start = Scl;
       

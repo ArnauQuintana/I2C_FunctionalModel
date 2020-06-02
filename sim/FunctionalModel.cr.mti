@@ -12,7 +12,7 @@ Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
 Top level modules:
 	tb_I2C
 
-} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/fm/LM75x_fm.v {1 {vlog -work work -nocovercells {D:\DSSD\ModelFuncional_ArnauQuintana\fm\LM75x_fm.v}
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/fm/LM75x_fm.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/fm/LM75x_fm.v
 Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling module LM75x_fm
 
@@ -54,10 +54,9 @@ Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
 Top level modules:
 	div_5
 
-} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/fm/I2C_cntr_fm.v {2 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/fm/I2C_cntr_fm.v
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/fm/I2C_cntr_fm.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/fm/I2C_cntr_fm.v
 Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling module I2C_cntr_fm
-** Warning: D:/DSSD/ModelFuncional_ArnauQuintana/fm/I2C_cntr_fm.v(14): [RDGN] - Redundant digits in numeric literal.
 
 Top level modules:
 	I2C_cntr_fm
@@ -83,14 +82,7 @@ Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
 Top level modules:
 	Shift_SRPL_master
 
-} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/Contador.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/src/Contador.v
-Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
--- Compiling module Contador
-
-Top level modules:
-	Contador
-
-} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/Master.v {1 {vlog -work work -nocovercells D:/DSSD/ModelFuncional_ArnauQuintana/src/Master.v
+} {} {}} D:/DSSD/ModelFuncional_ArnauQuintana/src/Master.v {1 {vlog -work work -nocovercells {D:\DSSD\ModelFuncional_ArnauQuintana\src\Master.v}
 Model Technology ModelSim ALTERA vlog 6.6d Compiler 2010.11 Nov  2 2010
 -- Compiling module Master
 
