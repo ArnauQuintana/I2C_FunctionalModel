@@ -58,6 +58,7 @@ initial begin
   rstOn;
   #100
   rstOff;
+ 
 end
 
 

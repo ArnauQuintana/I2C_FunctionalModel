@@ -17,6 +17,7 @@ initial begin
   Adr = 7'b1001101;
   R_W = 1'b0;
   #300 Start = 1'b1;
-  #2500 Start = 1'b0;
+  
+  
   end
 endmodule
