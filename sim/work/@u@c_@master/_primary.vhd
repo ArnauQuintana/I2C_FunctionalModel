@@ -25,7 +25,7 @@ entity UC_Master is
         Clk_scl         : in     vl_logic;
         Rst             : in     vl_logic;
         \Start\         : in     vl_logic;
-        R_W             : in     vl_logic;
+        RW              : in     vl_logic;
         Datain_sda      : in     vl_logic;
         \Pointer\       : in     vl_logic_vector(7 downto 0);
         Set_pointer     : in     vl_logic;

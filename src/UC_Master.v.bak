@@ -2,7 +2,7 @@ module UC_Master(input Clk,
 input Clk_scl,
 input Rst,
 input Start,
-input R_W,
+input RW,
 input Datain_sda,
 input [7:0] Pointer,
 input Set_pointer,
@@ -44,7 +44,7 @@ output reg Error);
     if (!Rst) state = IDLE;
     else      state = next;
       
-  always@(state or Out_cont_data or Start or Out_cont_cycle or Datain_sda or Clk_scl or R_W or Return or Pointer or Set_pointer) begin
+  always@(state or Out_cont_data or Start or Out_cont_cycle or Datain_sda or Clk_scl or RW or Return or Pointer or Set_pointer) begin
   next = 4'bx;
   case(state)
     IDLE: if (Start) next = START;
@@ -53,8 +53,8 @@ output reg Error);
            else next = START;
     ADRESS: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0101) next = ACK_ADRESS;
         else  next = ADRESS;
-    ACK_ADRESS: if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && R_W == 1'b0) next = POINTER;
-        else if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && R_W == 1'b1) next = MSB_RD;
+    ACK_ADRESS: if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && RW == 1'b0) next = POINTER;
+        else if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && RW == 1'b1) next = MSB_RD;
         else if (Clk_scl == 1'b1 && Datain_sda == 1'b1) next = IDLE;
         else next = ACK_ADRESS; 
     MSB_RD: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0001 && Pointer[1:0] != 2'b01) next = ACK_MSB_RD;
@@ -64,7 +64,7 @@ output reg Error);
         else next = ACK_MSB_RD;    
     LSB_RD: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0001) next = NACK_LSB_RD;
         else  next = LSB_RD;
-    NACK_LSB_RD: if (Out_cont_cycle == 4'b0011) next = STOP;
+    NACK_LSB_RD: if (Out_cont_cycle == 4'b0001) next = STOP;
         else next = NACK_LSB_RD;   
     POINTER: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0101) next = ACK_POINTER;
         else  next = POINTER;
@@ -110,7 +110,7 @@ output reg Error);
     end
     START:begin
     Enable_sda = 2'b01; //provoco un negedge a Sda
-    SelectPLSR = 3'b100;           
+    SelectPLSR = 3'b100; //selecciono el registre del qual carregar les dades al shift register         
     if (Out_cont_cycle == 4'b0001)
       Load_shiftPLSR = 1'b0;
     else
@@ -138,8 +138,8 @@ output reg Error);
     end
     ACK_MSB_RD:begin
     Enable_clk = 2'b10;
-    Enable_sda = 2'b01;
-    Data_valid = 1'b1;
+    Enable_sda = 2'b01; //provo un 0 a Sda activant el tri-state
+    Data_valid = 1'b1; //les dades a la sortida seran vàlides
     end
     LSB_RD:begin
     Enable_clk = 2'b10;
@@ -157,7 +157,7 @@ output reg Error);
     Enable_sda = 2'b10;
     Enable_clk = 2'b10;
     En_cont_data = 1'b1;
-    SelectPLSR = 3'b001;
+    SelectPLSR = 3'b001; 
       if (Out_cont_cycle == 4'b0001)
         Load_shiftPLSR = 1'b0;  //carrego dada a la sortida del shift 
       else
@@ -170,7 +170,7 @@ output reg Error);
     Enable_sda = 2'b10;
     Enable_clk = 2'b10;
     En_cont_data = 1'b1;
-    SelectPLSR = 3'b010;
+    SelectPLSR = 3'b010;  
       if (Out_cont_cycle == 4'b0001)
         Load_shiftPLSR = 1'b0;  
       else
@@ -215,7 +215,7 @@ output reg Error);
     SelectPLSR = 3'b100;
     if (Out_cont_cycle == 4'b0101 && Return == 1'b1) begin
       Enable_sda = 2'b01;
-      Load_shiftPLSR = 1'b0;
+      Load_shiftPLSR = 1'b0;  //carrego l'adreça al shift register
     end
     else if (Out_cont_cycle == 4'b0100 && Return == 1'b1) begin
       Enable_sda = 2'b01;

@@ -37,5 +37,3 @@ output reg Out);
     temp = {temp[6:0],1'b0};
   end
 endmodule
-
-

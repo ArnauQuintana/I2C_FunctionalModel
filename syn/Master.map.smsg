@@ -1,1 +1,5 @@
 Warning (10273): Verilog HDL warning at UC_Master.v(48): extended using "x" or "z"
+Info (10281): Verilog HDL Declaration information at UC_Master.v(4): object "Start" differs only in case from object "START" in the same scope
+Info (10281): Verilog HDL Declaration information at UC_Master.v(7): object "Pointer" differs only in case from object "POINTER" in the same scope
+Info (10281): Verilog HDL Declaration information at UC_Master.v(21): object "Error" differs only in case from object "ERROR" in the same scope
+Info (10281): Verilog HDL Declaration information at UC_Master.v(10): object "Repeat" differs only in case from object "REPEAT" in the same scope

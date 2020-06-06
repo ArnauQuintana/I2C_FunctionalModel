@@ -1,29 +1,37 @@
 |Master
-Rst => Rst.IN3
+Rst => Rst.IN5
 Start => Start.IN1
-Data_in[0] => In_shiftPLSR.DATAB
-Data_in[1] => In_shiftPLSR.DATAB
-Data_in[2] => In_shiftPLSR.DATAB
-Data_in[3] => In_shiftPLSR.DATAB
-Data_in[4] => In_shiftPLSR.DATAB
-Data_in[5] => In_shiftPLSR.DATAB
-Data_in[6] => In_shiftPLSR.DATAB
-Data_in[7] => In_shiftPLSR.DATAB
-Data_in2[0] => In_shiftPLSR.DATAB
-Data_in2[1] => In_shiftPLSR.DATAB
-Data_in2[2] => In_shiftPLSR.DATAB
-Data_in2[3] => In_shiftPLSR.DATAB
-Data_in2[4] => In_shiftPLSR.DATAB
-Data_in2[5] => In_shiftPLSR.DATAB
-Data_in2[6] => In_shiftPLSR.DATAB
-Data_in2[7] => In_shiftPLSR.DATAB
-Adr[0] => In_shiftPLSR.DATAA
-Adr[1] => In_shiftPLSR.DATAA
-Adr[2] => In_shiftPLSR.DATAA
-Adr[3] => In_shiftPLSR.DATAA
-Adr[4] => In_shiftPLSR.DATAA
-Adr[5] => In_shiftPLSR.DATAA
-Adr[6] => In_shiftPLSR.DATAA
+Data_in[0] => Save_datain.DATAA
+Data_in[0] => Save_datain.DATAB
+Data_in[1] => Save_datain.DATAA
+Data_in[1] => Save_datain.DATAB
+Data_in[2] => Save_datain.DATAA
+Data_in[2] => Save_datain.DATAB
+Data_in[3] => Save_datain.DATAA
+Data_in[3] => Save_datain.DATAB
+Data_in[4] => Save_datain.DATAA
+Data_in[4] => Save_datain.DATAB
+Data_in[5] => Save_datain.DATAA
+Data_in[5] => Save_datain.DATAB
+Data_in[6] => Save_datain.DATAA
+Data_in[6] => Save_datain.DATAB
+Data_in[7] => Save_datain.DATAA
+Data_in[7] => Save_datain.DATAB
+Data_in2[0] => Save_datain2[0].DATAIN
+Data_in2[1] => Save_datain2[1].DATAIN
+Data_in2[2] => Save_datain2[2].DATAIN
+Data_in2[3] => Save_datain2[3].DATAIN
+Data_in2[4] => Save_datain2[4].DATAIN
+Data_in2[5] => Save_datain2[5].DATAIN
+Data_in2[6] => Save_datain2[6].DATAIN
+Data_in2[7] => Save_datain2[7].DATAIN
+Adr[0] => Save_adr[1].DATAIN
+Adr[1] => Save_adr[2].DATAIN
+Adr[2] => Save_adr[3].DATAIN
+Adr[3] => Save_adr[4].DATAIN
+Adr[4] => Save_adr[5].DATAIN
+Adr[5] => Save_adr[6].DATAIN
+Adr[6] => Save_adr[7].DATAIN
 Pointer[0] => Pointer[0].IN1
 Pointer[1] => Pointer[1].IN1
 Pointer[2] => Pointer[2].IN1
@@ -33,7 +41,8 @@ Pointer[5] => Pointer[5].IN1
 Pointer[6] => Pointer[6].IN1
 Pointer[7] => Pointer[7].IN1
 Set_pointer => Set_pointer.IN1
-R_W => R_W.IN1
+R_W => Save_adr.DATAB
+R_W => Save_adr.DATAB
 Sda <> buf_sda
 Clk_in => Clk_in.IN1
 
@@ -49,7 +58,7 @@ clk_in => count[4].CLK
 clk_in => Tff_B.CLK
 
 
-|Master|div_5:div_5
+|Master|div_5:div5
 clk_in => B1.CLK
 clk_in => A1.CLK
 clk_in => count[0].CLK
@@ -59,7 +68,7 @@ clk_in => count[3].CLK
 clk_in => Tff_B.CLK
 
 
-|Master|Contador_rst:Contador1
+|Master|Contador_rst:Contador_scl
 En => Out.OUTPUTSELECT
 En => Out.OUTPUTSELECT
 En => Out.OUTPUTSELECT
@@ -74,11 +83,15 @@ Clk => Out[2]~reg0.CLK
 Clk => Out[3]~reg0.CLK
 
 
-|Master|Contador:Contador2
+|Master|Contador_rst:Contador_clk
 En => Out.OUTPUTSELECT
 En => Out.OUTPUTSELECT
 En => Out.OUTPUTSELECT
 En => Out.OUTPUTSELECT
+Rst => Out[0]~reg0.ACLR
+Rst => Out[1]~reg0.ACLR
+Rst => Out[2]~reg0.ACLR
+Rst => Out[3]~reg0.ACLR
 Clk => Out[0]~reg0.CLK
 Clk => Out[1]~reg0.CLK
 Clk => Out[2]~reg0.CLK
@@ -134,14 +147,22 @@ Clk => temp[4].CLK
 Clk => temp[5].CLK
 Clk => temp[6].CLK
 Clk => temp[7].CLK
+Rst => temp[0].ACLR
+Rst => temp[1].ACLR
+Rst => temp[2].ACLR
+Rst => temp[3].ACLR
+Rst => temp[4].ACLR
+Rst => temp[5].ACLR
+Rst => temp[6].ACLR
+Rst => temp[7].ACLR
 Load => temp[0].ENA
-Load => temp[1].ENA
-Load => temp[2].ENA
-Load => temp[3].ENA
-Load => temp[4].ENA
-Load => temp[5].ENA
-Load => temp[6].ENA
 Load => temp[7].ENA
+Load => temp[6].ENA
+Load => temp[5].ENA
+Load => temp[4].ENA
+Load => temp[3].ENA
+Load => temp[2].ENA
+Load => temp[1].ENA
 In => temp[0].DATAIN
 
 
@@ -152,8 +173,8 @@ Clk_scl => always1.IN0
 Rst => state~3.DATAIN
 Start => Selector1.IN3
 Start => Selector0.IN1
-R_W => always1.IN1
-R_W => always1.IN1
+RW => always1.IN1
+RW => always1.IN1
 Datain_sda => always1.IN1
 Datain_sda => always1.IN1
 Pointer[0] => Equal1.IN0
@@ -170,18 +191,27 @@ Set_pointer => always1.IN1
 Set_pointer => always1.IN1
 Return => always1.IN1
 Return => always2.IN1
-Out_cont_cycle[0] => Equal2.IN3
-Out_cont_cycle[0] => Equal3.IN1
-Out_cont_cycle[0] => Equal5.IN0
-Out_cont_cycle[1] => Equal2.IN0
-Out_cont_cycle[1] => Equal3.IN3
-Out_cont_cycle[1] => Equal5.IN3
+Return => always2.IN1
+Out_cont_cycle[0] => Equal2.IN0
+Out_cont_cycle[0] => Equal3.IN3
+Out_cont_cycle[0] => Equal5.IN1
+Out_cont_cycle[0] => Equal6.IN3
+Out_cont_cycle[0] => Equal7.IN1
+Out_cont_cycle[1] => Equal2.IN3
+Out_cont_cycle[1] => Equal3.IN2
+Out_cont_cycle[1] => Equal5.IN0
+Out_cont_cycle[1] => Equal6.IN0
+Out_cont_cycle[1] => Equal7.IN3
 Out_cont_cycle[2] => Equal2.IN2
 Out_cont_cycle[2] => Equal3.IN0
-Out_cont_cycle[2] => Equal5.IN2
+Out_cont_cycle[2] => Equal5.IN3
+Out_cont_cycle[2] => Equal6.IN2
+Out_cont_cycle[2] => Equal7.IN0
 Out_cont_cycle[3] => Equal2.IN1
-Out_cont_cycle[3] => Equal3.IN2
-Out_cont_cycle[3] => Equal5.IN1
+Out_cont_cycle[3] => Equal3.IN1
+Out_cont_cycle[3] => Equal5.IN2
+Out_cont_cycle[3] => Equal6.IN1
+Out_cont_cycle[3] => Equal7.IN2
 Out_cont_data[0] => Equal0.IN3
 Out_cont_data[0] => Equal4.IN3
 Out_cont_data[1] => Equal0.IN2

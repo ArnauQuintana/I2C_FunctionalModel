@@ -43,12 +43,16 @@ input Clk_in);
 	 else
 	   Save_datain2 = Save_datain2;	
 	
+	wire Repeat,RW; 
 	reg [7:0] Save_adr;
+	assign RW = ~Save_adr[0];
 	always@(posedge Clk or negedge Rst)
 	  if (!Rst)
 	    Save_adr = 8'b0;
 	  else if(Ready)	  
 	    Save_adr = ~{Adr,R_W}; 
+	  else if(Repeat)
+	    Save_adr = {Save_adr[7:1],~R_W};
 	  else 
 	    Save_adr = Save_adr;
 	  
@@ -60,8 +64,7 @@ input Clk_in);
 	   Save_pointer = ~Pointer;
 	 else
 	   Save_pointer = Save_pointer;
-	
-	wire Repeat;     
+	    
 	reg Return = 1'b0;
 	always@(posedge Clk_scl or negedge Rst)
 	 if (!Rst)
@@ -73,7 +76,7 @@ input Clk_in);
 	
 	wire [3:0] Out_cont_data;
 	wire En_cont_data;
-	Contador_rst Contador_scl(.En(En_cont_data),  //conta els cicles del rellotge del Scl
+	Contador_rst Contador_scl(.En(En_cont_data),  //compta els cicles del rellotge del Scl
 	.Clk(Clk_scl),
 	.Rst(Rst),
 	.Out(Out_cont_data));
@@ -81,7 +84,7 @@ input Clk_in);
   wire [3:0] Out_cont_cycle;
   wire En_cont_cycle;
   assign En_cont_cycle = 1'b1;
-  Contador_rst #(5)Contador_clk(.En(En_cont_cycle),  //conta els cicles del rellotge del master
+  Contador_rst #(5)Contador_clk(.En(En_cont_cycle),  //compta els cicles del rellotge del master
   .Rst(Rst),
   .Clk(Clk),
   .Out(Out_cont_cycle));
@@ -124,7 +127,7 @@ input Clk_in);
   .Clk_scl(Clk_scl),
   .Rst(Rst),
   .Start(Start),
-  .R_W(R_W),
+  .RW(RW),
   .Datain_sda(Datain_sda),
   .Pointer(Pointer),
   .Set_pointer(Set_pointer),

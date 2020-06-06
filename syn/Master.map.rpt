@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Master
-Mon May 25 18:11:05 2020
+Fri Jun 05 19:01:50 2020
 Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
 
 
@@ -14,17 +14,16 @@ Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |Master|UC_Master:UC_Master|state
-  9. User-Specified and Inferred Latches
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: Contador_rst:Contador1
- 14. Parameter Settings for User Entity Instance: Contador:Contador2
- 15. Parameter Settings for User Entity Instance: UC_Master:UC_Master
- 16. Port Connectivity Checks: "Contador:Contador2"
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
- 19. Analysis & Synthesis Suppressed Messages
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Contador_rst:Contador_scl
+ 13. Parameter Settings for User Entity Instance: Contador_rst:Contador_clk
+ 14. Parameter Settings for User Entity Instance: UC_Master:UC_Master
+ 15. Port Connectivity Checks: "Contador_rst:Contador_clk"
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -50,16 +49,16 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon May 25 18:11:05 2020         ;
+; Analysis & Synthesis Status        ; Successful - Fri Jun 05 19:01:50 2020         ;
 ; Quartus II Version                 ; 11.0 Build 208 07/03/2011 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Master                                        ;
 ; Top-level Entity Name              ; Master                                        ;
 ; Family                             ; Cyclone IV E                                  ;
-; Total logic elements               ; 153                                           ;
-;     Total combinational functions  ; 145                                           ;
-;     Dedicated logic registers      ; 64                                            ;
-; Total registers                    ; 64                                            ;
-; Total pins                         ; 56                                            ;
+; Total logic elements               ; 173                                           ;
+;     Total combinational functions  ; 165                                           ;
+;     Dedicated logic registers      ; 96                                            ;
+; Total registers                    ; 96                                            ;
+; Total pins                         ; 49                                            ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0                                             ;
 ; Embedded Multiplier 9-bit elements ; 0                                             ;
@@ -167,14 +166,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------+--------------------------------------------------------------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                 ;
 +----------------------------------+-----------------+------------------------+--------------------------------------------------------------+
+; ../src/Master.v                  ; yes             ; User Verilog HDL File  ; D:/DSSD/ModelFuncional_ArnauQuintana/src/Master.v            ;
 ; ../src/UC_Master.v               ; yes             ; User Verilog HDL File  ; D:/DSSD/ModelFuncional_ArnauQuintana/src/UC_Master.v         ;
 ; ../src/Shift_SRPL_master.v       ; yes             ; User Verilog HDL File  ; D:/DSSD/ModelFuncional_ArnauQuintana/src/Shift_SRPL_master.v ;
 ; ../src/Shift_PLSR_master.v       ; yes             ; User Verilog HDL File  ; D:/DSSD/ModelFuncional_ArnauQuintana/src/Shift_PLSR_master.v ;
-; ../src/Master.v                  ; yes             ; User Verilog HDL File  ; D:/DSSD/ModelFuncional_ArnauQuintana/src/Master.v            ;
 ; ../src/div_25.v                  ; yes             ; User Verilog HDL File  ; D:/DSSD/ModelFuncional_ArnauQuintana/src/div_25.v            ;
 ; ../src/div_5.v                   ; yes             ; User Verilog HDL File  ; D:/DSSD/ModelFuncional_ArnauQuintana/src/div_5.v             ;
 ; ../src/Contador_rst.v            ; yes             ; User Verilog HDL File  ; D:/DSSD/ModelFuncional_ArnauQuintana/src/Contador_rst.v      ;
-; ../src/Contador.v                ; yes             ; User Verilog HDL File  ; D:/DSSD/ModelFuncional_ArnauQuintana/src/Contador.v          ;
 +----------------------------------+-----------------+------------------------+--------------------------------------------------------------+
 
 
@@ -183,27 +181,27 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------------------+
 ; Resource                                    ; Usage                ;
 +---------------------------------------------+----------------------+
-; Estimated Total logic elements              ; 153                  ;
+; Estimated Total logic elements              ; 173                  ;
 ;                                             ;                      ;
-; Total combinational functions               ; 145                  ;
+; Total combinational functions               ; 165                  ;
 ; Logic element usage by number of LUT inputs ;                      ;
-;     -- 4 input functions                    ; 93                   ;
-;     -- 3 input functions                    ; 31                   ;
-;     -- <=2 input functions                  ; 21                   ;
+;     -- 4 input functions                    ; 98                   ;
+;     -- 3 input functions                    ; 10                   ;
+;     -- <=2 input functions                  ; 57                   ;
 ;                                             ;                      ;
 ; Logic elements by mode                      ;                      ;
-;     -- normal mode                          ; 141                  ;
+;     -- normal mode                          ; 161                  ;
 ;     -- arithmetic mode                      ; 4                    ;
 ;                                             ;                      ;
-; Total registers                             ; 64                   ;
-;     -- Dedicated logic registers            ; 64                   ;
+; Total registers                             ; 96                   ;
+;     -- Dedicated logic registers            ; 96                   ;
 ;     -- I/O registers                        ; 0                    ;
 ;                                             ;                      ;
-; I/O pins                                    ; 56                   ;
+; I/O pins                                    ; 49                   ;
 ; Maximum fan-out node                        ; div_25:div25|clk_out ;
-; Maximum fan-out                             ; 49                   ;
-; Total fan-out                               ; 757                  ;
-; Average fan-out                             ; 2.35                 ;
+; Maximum fan-out                             ; 81                   ;
+; Total fan-out                               ; 882                  ;
+; Average fan-out                             ; 2.45                 ;
 +---------------------------------------------+----------------------+
 
 
@@ -212,68 +210,42 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
 ; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                         ; Library Name ;
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
-; |Master                                  ; 145 (22)          ; 64 (1)       ; 0           ; 0            ; 0       ; 0         ; 56   ; 0            ; |Master                                     ;              ;
-;    |Contador:Contador2|                  ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|Contador:Contador2                  ;              ;
-;    |Contador_rst:Contador1|              ; 7 (7)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|Contador_rst:Contador1              ;              ;
-;    |Shift_PLSR_master:Shift_PLSR_master| ; 42 (42)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|Shift_PLSR_master:Shift_PLSR_master ;              ;
+; |Master                                  ; 165 (38)          ; 96 (33)      ; 0           ; 0            ; 0       ; 0         ; 49   ; 0            ; |Master                                     ;              ;
+;    |Contador_rst:Contador_clk|           ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|Contador_rst:Contador_clk           ;              ;
+;    |Contador_rst:Contador_scl|           ; 7 (7)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|Contador_rst:Contador_scl           ;              ;
+;    |Shift_PLSR_master:Shift_PLSR_master| ; 41 (41)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|Shift_PLSR_master:Shift_PLSR_master ;              ;
 ;    |Shift_SRPL_master:Shift_SRPL_master| ; 1 (1)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|Shift_SRPL_master:Shift_SRPL_master ;              ;
-;    |UC_Master:UC_Master|                 ; 45 (45)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|UC_Master:UC_Master                 ;              ;
+;    |UC_Master:UC_Master|                 ; 50 (50)           ; 17 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|UC_Master:UC_Master                 ;              ;
 ;    |div_25:div25|                        ; 15 (15)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|div_25:div25                        ;              ;
-;    |div_5:div_5|                         ; 9 (9)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|div_5:div_5                         ;              ;
+;    |div_5:div5|                          ; 9 (9)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Master|div_5:div5                          ;              ;
 +------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |Master|UC_Master:UC_Master|state                                                                                                                                                           ;
-+-----------+-----------+-----------+-----------+-----------+-----------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+-----------+
-; Name      ; state.S15 ; state.S14 ; state.S13 ; state.S12 ; state.S11 ; state.S10 ; state.S9 ; state.S8 ; state.S7 ; state.S6 ; state.S5 ; state.S4 ; state.S3 ; state.S2 ; state.S1 ; state.S0 ; state.S16 ;
-+-----------+-----------+-----------+-----------+-----------+-----------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+-----------+
-; state.S0  ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0         ;
-; state.S1  ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 1        ; 0         ;
-; state.S2  ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 1        ; 0         ;
-; state.S3  ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 1        ; 0         ;
-; state.S4  ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S5  ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S6  ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S7  ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S8  ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S9  ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S10 ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S11 ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S12 ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S13 ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S14 ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S15 ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0         ;
-; state.S16 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 1         ;
-+-----------+-----------+-----------+-----------+-----------+-----------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+-----------+
-
-
-+-------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                         ;
-+-----------------------------------------------------+------------------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal          ; Free of Timing Hazards ;
-+-----------------------------------------------------+------------------------------+------------------------+
-; Data_out1[0]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out1[1]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out1[2]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out1[3]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out1[4]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out1[5]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out1[6]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out1[7]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out2[0]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out2[1]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out2[2]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out2[3]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out2[4]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out2[5]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out2[6]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Data_out2[7]$latch                                  ; UC_Master:UC_Master|state.S6 ; yes                    ;
-; Number of user-specified and inferred latches = 16  ;                              ;                        ;
-+-----------------------------------------------------+------------------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Master|UC_Master:UC_Master|state                                                                                                                                                                                                                                                     ;
++-------------------+-------------+------------+------------------+--------------+------------------+--------------+-------------------+---------------+-------------------+--------------+------------------+--------------+------------------+--------------+-------------+------------+--------------+
+; Name              ; state.ERROR ; state.STOP ; state.ACK_LSB_WR ; state.LSB_WR ; state.ACK_MSB_WR ; state.MSB_WR ; state.ACK_POINTER ; state.POINTER ; state.NACK_LSB_RD ; state.LSB_RD ; state.ACK_MSB_RD ; state.MSB_RD ; state.ACK_ADRESS ; state.ADRESS ; state.START ; state.IDLE ; state.REPEAT ;
++-------------------+-------------+------------+------------------+--------------+------------------+--------------+-------------------+---------------+-------------------+--------------+------------------+--------------+------------------+--------------+-------------+------------+--------------+
+; state.IDLE        ; 0           ; 0          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 0           ; 0          ; 0            ;
+; state.START       ; 0           ; 0          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 1           ; 1          ; 0            ;
+; state.ADRESS      ; 0           ; 0          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 1            ; 0           ; 1          ; 0            ;
+; state.ACK_ADRESS  ; 0           ; 0          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 1                ; 0            ; 0           ; 1          ; 0            ;
+; state.MSB_RD      ; 0           ; 0          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 1            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.ACK_MSB_RD  ; 0           ; 0          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 1                ; 0            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.LSB_RD      ; 0           ; 0          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 1            ; 0                ; 0            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.NACK_LSB_RD ; 0           ; 0          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 1                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.POINTER     ; 0           ; 0          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 1             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.ACK_POINTER ; 0           ; 0          ; 0                ; 0            ; 0                ; 0            ; 1                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.MSB_WR      ; 0           ; 0          ; 0                ; 0            ; 0                ; 1            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.ACK_MSB_WR  ; 0           ; 0          ; 0                ; 0            ; 1                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.LSB_WR      ; 0           ; 0          ; 0                ; 1            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.ACK_LSB_WR  ; 0           ; 0          ; 1                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.STOP        ; 0           ; 1          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.ERROR       ; 1           ; 0          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 0           ; 1          ; 0            ;
+; state.REPEAT      ; 0           ; 0          ; 0                ; 0            ; 0                ; 0            ; 0                 ; 0             ; 0                 ; 0            ; 0                ; 0            ; 0                ; 0            ; 0           ; 1          ; 1            ;
++-------------------+-------------+------------+------------------+--------------+------------------+--------------+-------------------+---------------+-------------------+--------------+------------------+--------------+------------------+--------------+-------------+------------+--------------+
 
 
 +------------------------------------------------------------+
@@ -294,12 +266,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 64    ;
+; Total registers                              ; 96    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 34    ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 79    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 15    ;
+; Number of registers using Clock Enable       ; 38    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -309,29 +281,29 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                          ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------------+----------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |Master|Contador_rst:Contador1|Out[0]               ;                            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; |Master|Contador_rst:Contador_scl|Out[0]            ;                            ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |Master|Shift_PLSR_master:Shift_PLSR_master|Cont[2] ;                            ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; |Master|Shift_PLSR_master:Shift_PLSR_master|temp[7] ;                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------------+----------------------------+
 
 
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Contador_rst:Contador1 ;
-+----------------+-------+--------------------------------------------+
-; Parameter Name ; Value ; Type                                       ;
-+----------------+-------+--------------------------------------------+
-; M              ; 1000  ; Unsigned Binary                            ;
-+----------------+-------+--------------------------------------------+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Contador_rst:Contador_scl ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; M              ; 1000  ; Unsigned Binary                               ;
++----------------+-------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Contador:Contador2 ;
-+----------------+-------+----------------------------------------+
-; Parameter Name ; Value ; Type                                   ;
-+----------------+-------+----------------------------------------+
-; M              ; 5     ; Signed Integer                         ;
-+----------------+-------+----------------------------------------+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Contador_rst:Contador_clk ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; M              ; 5     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -340,34 +312,34 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-----------------------------------------+
 ; Parameter Name ; Value ; Type                                    ;
 +----------------+-------+-----------------------------------------+
-; S0             ; 00000 ; Unsigned Binary                         ;
-; S1             ; 00001 ; Unsigned Binary                         ;
-; S2             ; 00010 ; Unsigned Binary                         ;
-; S3             ; 00011 ; Unsigned Binary                         ;
-; S4             ; 00100 ; Unsigned Binary                         ;
-; S5             ; 00101 ; Unsigned Binary                         ;
-; S6             ; 00110 ; Unsigned Binary                         ;
-; S7             ; 00111 ; Unsigned Binary                         ;
-; S8             ; 01000 ; Unsigned Binary                         ;
-; S9             ; 01001 ; Unsigned Binary                         ;
-; S10            ; 01010 ; Unsigned Binary                         ;
-; S11            ; 01011 ; Unsigned Binary                         ;
-; S12            ; 01100 ; Unsigned Binary                         ;
-; S13            ; 01101 ; Unsigned Binary                         ;
-; S14            ; 01110 ; Unsigned Binary                         ;
-; S15            ; 01111 ; Unsigned Binary                         ;
-; S16            ; 10000 ; Unsigned Binary                         ;
+; IDLE           ; 00000 ; Unsigned Binary                         ;
+; START          ; 00001 ; Unsigned Binary                         ;
+; ADRESS         ; 00010 ; Unsigned Binary                         ;
+; ACK_ADRESS     ; 00011 ; Unsigned Binary                         ;
+; MSB_RD         ; 00100 ; Unsigned Binary                         ;
+; ACK_MSB_RD     ; 00101 ; Unsigned Binary                         ;
+; LSB_RD         ; 00110 ; Unsigned Binary                         ;
+; NACK_LSB_RD    ; 00111 ; Unsigned Binary                         ;
+; POINTER        ; 01000 ; Unsigned Binary                         ;
+; ACK_POINTER    ; 01001 ; Unsigned Binary                         ;
+; MSB_WR         ; 01010 ; Unsigned Binary                         ;
+; ACK_MSB_WR     ; 01011 ; Unsigned Binary                         ;
+; LSB_WR         ; 01100 ; Unsigned Binary                         ;
+; ACK_LSB_WR     ; 01101 ; Unsigned Binary                         ;
+; STOP           ; 01110 ; Unsigned Binary                         ;
+; ERROR          ; 01111 ; Unsigned Binary                         ;
+; REPEAT         ; 10000 ; Unsigned Binary                         ;
 +----------------+-------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------+
-; Port Connectivity Checks: "Contador:Contador2" ;
-+------+-------+----------+----------------------+
-; Port ; Type  ; Severity ; Details              ;
-+------+-------+----------+----------------------+
-; En   ; Input ; Info     ; Stuck at VCC         ;
-+------+-------+----------+----------------------+
++-------------------------------------------------------+
+; Port Connectivity Checks: "Contador_rst:Contador_clk" ;
++------+-------+----------+-----------------------------+
+; Port ; Type  ; Severity ; Details                     ;
++------+-------+----------+-----------------------------+
+; En   ; Input ; Info     ; Stuck at VCC                ;
++------+-------+----------+-----------------------------+
 
 
 +-------------------------------+
@@ -385,49 +357,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon May 25 18:11:03 2020
+    Info: Processing started: Fri Jun 05 19:01:48 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Master -c Master
 Warning: Parallel compilation is not licensed and has been disabled
+Info: Found 1 design units, including 1 entities, in source file /dssd/modelfuncional_arnauquintana/src/master.v
+    Info: Found entity 1: Master
 Info: Found 1 design units, including 1 entities, in source file /dssd/modelfuncional_arnauquintana/src/uc_master.v
     Info: Found entity 1: UC_Master
 Info: Found 1 design units, including 1 entities, in source file /dssd/modelfuncional_arnauquintana/src/shift_srpl_master.v
     Info: Found entity 1: Shift_SRPL_master
 Info: Found 1 design units, including 1 entities, in source file /dssd/modelfuncional_arnauquintana/src/shift_plsr_master.v
     Info: Found entity 1: Shift_PLSR_master
-Info: Found 1 design units, including 1 entities, in source file /dssd/modelfuncional_arnauquintana/src/master.v
-    Info: Found entity 1: Master
 Info: Found 1 design units, including 1 entities, in source file /dssd/modelfuncional_arnauquintana/src/div_25.v
     Info: Found entity 1: div_25
 Info: Found 1 design units, including 1 entities, in source file /dssd/modelfuncional_arnauquintana/src/div_5.v
     Info: Found entity 1: div_5
 Info: Found 1 design units, including 1 entities, in source file /dssd/modelfuncional_arnauquintana/src/contador_rst.v
     Info: Found entity 1: Contador_rst
-Info: Found 1 design units, including 1 entities, in source file /dssd/modelfuncional_arnauquintana/src/contador.v
-    Info: Found entity 1: Contador
 Info: Elaborating entity "Master" for the top level hierarchy
-Warning (10235): Verilog HDL Always Construct warning at Master.v(110): variable "Data_out2" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10240): Verilog HDL Always Construct warning at Master.v(103): inferring latch(es) for variable "Data_out1", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at Master.v(103): inferring latch(es) for variable "Data_out2", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "Data_out2[0]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out2[1]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out2[2]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out2[3]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out2[4]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out2[5]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out2[6]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out2[7]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out1[0]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out1[1]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out1[2]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out1[3]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out1[4]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out1[5]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out1[6]" at Master.v(109)
-Info (10041): Inferred latch for "Data_out1[7]" at Master.v(109)
 Info: Elaborating entity "div_25" for hierarchy "div_25:div25"
-Info: Elaborating entity "div_5" for hierarchy "div_5:div_5"
-Info: Elaborating entity "Contador_rst" for hierarchy "Contador_rst:Contador1"
-Info: Elaborating entity "Contador" for hierarchy "Contador:Contador2"
+Info: Elaborating entity "div_5" for hierarchy "div_5:div5"
+Info: Elaborating entity "Contador_rst" for hierarchy "Contador_rst:Contador_scl"
+Info: Elaborating entity "Contador_rst" for hierarchy "Contador_rst:Contador_clk"
 Info: Elaborating entity "Shift_PLSR_master" for hierarchy "Shift_PLSR_master:Shift_PLSR_master"
 Info: Elaborating entity "Shift_SRPL_master" for hierarchy "Shift_SRPL_master:Shift_SRPL_master"
 Info: Elaborating entity "UC_Master" for hierarchy "UC_Master:UC_Master"
@@ -441,14 +392,14 @@ Info: 4 registers lost all their fanouts during netlist optimizations. The first
     Info: Register "UC_Master:UC_Master|state~7" lost all its fanouts during netlist optimizations.
 Info: Generated suppressed messages file D:/DSSD/ModelFuncional_ArnauQuintana/syn/Master.map.smsg
 Info: Generating hard_block partition "hard_block:auto_generated_inst"
-Info: Implemented 209 device resources after synthesis - the final resource count might be different
+Info: Implemented 222 device resources after synthesis - the final resource count might be different
     Info: Implemented 36 input pins
-    Info: Implemented 19 output pins
+    Info: Implemented 12 output pins
     Info: Implemented 1 bidirectional pins
-    Info: Implemented 153 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Implemented 173 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 278 megabytes
-    Info: Processing ended: Mon May 25 18:11:05 2020
+    Info: Processing ended: Fri Jun 05 19:01:50 2020
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 

@@ -1,15 +1,12 @@
 module LM75x_fm(inout Sda,
 input Scl,
-input Rst);
+input Rst,
+input Start);
 
   reg [15:0] Temp = 16'b1001100100110001;
   
   reg Enable_sda = 1'b0;
   bufif1(Sda,1'b0,Enable_sda);
-  
-  reg Start;
-  always@(negedge Sda)
-    Start = Scl;
       
   wire [3:0] Out_cont;    
   reg En_cont,Rst_cont;
@@ -19,25 +16,38 @@ input Rst);
   .Out(Out_cont));
 
   reg R_W;
-  reg [1:0] Pointer = 2'b10;//per defecte seria el reg 00 (només RD de 2Bytes), el nostre serà el reg de 2 bytes
+  reg [1:0] Pointer = 2'b10;//per defecte seria el reg 00 (només RD de 2Bytes), per testejar s'utilitza el 10
   initial begin
   En_cont = 1'b0;
   R_W = 1'bx;
   end
   
   integer Times;
-  always@(posedge Start) begin
+  always@(posedge Start) begin  
     Rst_cont = 1'b0;
     #5 Rst_cont = 1'b1;
     En_cont = 1'b1;
     Times = 0;
   end
-
+  
+  reg Edge_start;
+  always@(negedge Sda)  
+    Edge_start = Scl;
+    
+  always@(posedge Edge_start) begin  //quan tenim un repeat Start, es detecta per flanc
+    if (Times == 2) begin
+      Rst_cont = 1'b0;
+      #5 Rst_cont = 1'b1;
+    end
+  end
+  
 //Informa del moment de la simulació en que ens trobem
   always@(posedge Scl)
   if (R_W == 1'b0)begin
     if(Out_cont == 4'b1001)
       Times = Times + 1; 
+    else if (Edge_start)
+      Times = 0;
     else
       Times = Times; 
   end
@@ -68,9 +78,9 @@ input Rst);
   if (R_W == 1'b0)begin
     if (Times == 1) begin
       wait(Out_cont == 4'b0111) 
-        Pointer[1] = Sda;
+        Pointer[1] = Sda;            //es guarda el primer bit dels 2 de direcció de registre
       wait(Out_cont == 4'b1000) begin
-      #5 Pointer[0] = Sda;
+      #5 Pointer[0] = Sda;           //es guarda el segon bit dels 2 de direcció de registre
       #1250 Enable_sda = 1'b1;
       #2500 Enable_sda = 1'b0;
       end
@@ -90,10 +100,10 @@ input Rst);
   //ACK LSB WR
   always@(posedge Scl)
   if(R_W == 1'b0) begin 
-    if(Times == 3 && R_W == 1'b0 && Pointer[1] == 1'b1)
+    if(Times == 3 && R_W == 1'b0 && Pointer[1] == 1'b1) //només s'entra si s'escriu el reg de 2 bytes
       wait(Out_cont == 4'b1000) begin
       #1250 Enable_sda = 1'b1;
-      #2500 Enable_sda = 1'b0;
+      #2600 Enable_sda = 1'b0;
       end
   end
   
@@ -112,7 +122,7 @@ input Rst);
       #2500 Enable_sda = Temp[8];
       #2500 Enable_sda = 1'b0;
       end
-    else if(Times == 2 && Pointer[1] == 1'b1) begin
+    else if(Times == 2 && Pointer[1] == 1'b1) begin  //només s'entra si es llegeix el reg de 2 bytes
       #1750 Enable_sda = Temp[7];
       #2500 Enable_sda = Temp[6];
       #2500 Enable_sda = Temp[5];
@@ -125,24 +135,4 @@ input Rst);
     end
   end
   
-  
-  
-  
-  
-      
-  
-      
-           
- 
- 
-  
-  
-  
-      
-  
-  
-    
-    
-    
-
 endmodule

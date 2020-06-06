@@ -3,51 +3,43 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1000mV 85C Model Setup 'div_25:div25|Tff_A'
-Slack : -4.982
-TNS   : -147.504
+Slack : -3.913
+TNS   : -171.530
 
 Type  : Slow 1000mV 85C Model Setup 'Clk_in'
-Slack : -1.811
-TNS   : -11.165
+Slack : -1.822
+TNS   : -10.902
 
-Type  : Slow 1000mV 85C Model Setup 'UC_Master:UC_Master|state.S6'
-Slack : -1.793
-TNS   : -19.763
+Type  : Slow 1000mV 85C Model Setup 'div_5:div5|Tff_A'
+Slack : -1.442
+TNS   : -4.737
 
-Type  : Slow 1000mV 85C Model Setup 'div_5:div_5|Tff_A'
-Slack : -1.503
-TNS   : -5.293
-
-Type  : Slow 1000mV 85C Model Setup 'div_5:div_5|A1'
+Type  : Slow 1000mV 85C Model Setup 'div_5:div5|A1'
 Slack : -0.082
 TNS   : -0.082
 
 Type  : Slow 1000mV 85C Model Setup 'div_25:div25|A1'
-Slack : 0.062
-TNS   : 0.000
+Slack : -0.050
+TNS   : -0.050
 
 Type  : Slow 1000mV 85C Model Hold 'div_25:div25|Tff_A'
-Slack : -1.122
-TNS   : -12.496
+Slack : -1.631
+TNS   : -17.638
 
-Type  : Slow 1000mV 85C Model Hold 'div_5:div_5|Tff_A'
-Slack : -0.837
-TNS   : -2.971
-
-Type  : Slow 1000mV 85C Model Hold 'div_5:div_5|A1'
-Slack : 0.053
-TNS   : 0.000
+Type  : Slow 1000mV 85C Model Hold 'div_5:div5|Tff_A'
+Slack : -0.064
+TNS   : -0.064
 
 Type  : Slow 1000mV 85C Model Hold 'div_25:div25|A1'
-Slack : 0.164
-TNS   : 0.000
+Slack : -0.060
+TNS   : -0.060
 
-Type  : Slow 1000mV 85C Model Hold 'UC_Master:UC_Master|state.S6'
-Slack : 0.313
-TNS   : 0.000
+Type  : Slow 1000mV 85C Model Hold 'div_5:div5|A1'
+Slack : -0.029
+TNS   : -0.029
 
 Type  : Slow 1000mV 85C Model Hold 'Clk_in'
-Slack : 0.521
+Slack : 0.532
 TNS   : 0.000
 
 Type  : Slow 1000mV 85C Model Minimum Pulse Width 'Clk_in'
@@ -56,9 +48,9 @@ TNS   : -17.104
 
 Type  : Slow 1000mV 85C Model Minimum Pulse Width 'div_25:div25|Tff_A'
 Slack : -1.763
-TNS   : -86.387
+TNS   : -142.803
 
-Type  : Slow 1000mV 85C Model Minimum Pulse Width 'div_5:div_5|Tff_A'
+Type  : Slow 1000mV 85C Model Minimum Pulse Width 'div_5:div5|Tff_A'
 Slack : -1.763
 TNS   : -8.815
 
@@ -66,60 +58,48 @@ Type  : Slow 1000mV 85C Model Minimum Pulse Width 'div_25:div25|A1'
 Slack : -1.763
 TNS   : -1.763
 
-Type  : Slow 1000mV 85C Model Minimum Pulse Width 'div_5:div_5|A1'
+Type  : Slow 1000mV 85C Model Minimum Pulse Width 'div_5:div5|A1'
 Slack : -1.763
 TNS   : -1.763
 
-Type  : Slow 1000mV 85C Model Minimum Pulse Width 'UC_Master:UC_Master|state.S6'
-Slack : 0.453
-TNS   : 0.000
-
 Type  : Slow 1000mV 0C Model Setup 'div_25:div25|Tff_A'
-Slack : -4.751
-TNS   : -140.766
-
-Type  : Slow 1000mV 0C Model Setup 'UC_Master:UC_Master|state.S6'
-Slack : -1.781
-TNS   : -19.742
+Slack : -3.729
+TNS   : -163.743
 
 Type  : Slow 1000mV 0C Model Setup 'Clk_in'
-Slack : -1.733
-TNS   : -10.587
+Slack : -1.740
+TNS   : -10.343
 
-Type  : Slow 1000mV 0C Model Setup 'div_5:div_5|Tff_A'
-Slack : -1.422
-TNS   : -4.968
+Type  : Slow 1000mV 0C Model Setup 'div_5:div5|Tff_A'
+Slack : -1.367
+TNS   : -4.441
 
-Type  : Slow 1000mV 0C Model Setup 'div_5:div_5|A1'
-Slack : -0.040
-TNS   : -0.040
+Type  : Slow 1000mV 0C Model Setup 'div_5:div5|A1'
+Slack : -0.057
+TNS   : -0.057
 
 Type  : Slow 1000mV 0C Model Setup 'div_25:div25|A1'
-Slack : 0.085
-TNS   : 0.000
+Slack : -0.026
+TNS   : -0.026
 
 Type  : Slow 1000mV 0C Model Hold 'div_25:div25|Tff_A'
-Slack : -1.076
-TNS   : -11.640
-
-Type  : Slow 1000mV 0C Model Hold 'div_5:div_5|Tff_A'
-Slack : -0.748
-TNS   : -2.592
-
-Type  : Slow 1000mV 0C Model Hold 'div_5:div_5|A1'
-Slack : 0.017
-TNS   : 0.000
+Slack : -1.509
+TNS   : -16.417
 
 Type  : Slow 1000mV 0C Model Hold 'div_25:div25|A1'
-Slack : 0.174
-TNS   : 0.000
+Slack : -0.081
+TNS   : -0.081
 
-Type  : Slow 1000mV 0C Model Hold 'UC_Master:UC_Master|state.S6'
-Slack : 0.355
-TNS   : 0.000
+Type  : Slow 1000mV 0C Model Hold 'div_5:div5|Tff_A'
+Slack : -0.055
+TNS   : -0.055
+
+Type  : Slow 1000mV 0C Model Hold 'div_5:div5|A1'
+Slack : -0.049
+TNS   : -0.049
 
 Type  : Slow 1000mV 0C Model Hold 'Clk_in'
-Slack : 0.504
+Slack : 0.521
 TNS   : 0.000
 
 Type  : Slow 1000mV 0C Model Minimum Pulse Width 'Clk_in'
@@ -128,9 +108,9 @@ TNS   : -17.104
 
 Type  : Slow 1000mV 0C Model Minimum Pulse Width 'div_25:div25|Tff_A'
 Slack : -1.763
-TNS   : -86.387
+TNS   : -142.803
 
-Type  : Slow 1000mV 0C Model Minimum Pulse Width 'div_5:div_5|Tff_A'
+Type  : Slow 1000mV 0C Model Minimum Pulse Width 'div_5:div5|Tff_A'
 Slack : -1.763
 TNS   : -8.815
 
@@ -138,60 +118,48 @@ Type  : Slow 1000mV 0C Model Minimum Pulse Width 'div_25:div25|A1'
 Slack : -1.763
 TNS   : -1.763
 
-Type  : Slow 1000mV 0C Model Minimum Pulse Width 'div_5:div_5|A1'
+Type  : Slow 1000mV 0C Model Minimum Pulse Width 'div_5:div5|A1'
 Slack : -1.763
 TNS   : -1.763
 
-Type  : Slow 1000mV 0C Model Minimum Pulse Width 'UC_Master:UC_Master|state.S6'
-Slack : 0.420
-TNS   : 0.000
-
 Type  : Fast 1000mV 0C Model Setup 'div_25:div25|Tff_A'
-Slack : -2.520
-TNS   : -69.293
-
-Type  : Fast 1000mV 0C Model Setup 'UC_Master:UC_Master|state.S6'
-Slack : -0.656
-TNS   : -4.602
+Slack : -1.834
+TNS   : -64.340
 
 Type  : Fast 1000mV 0C Model Setup 'Clk_in'
-Slack : -0.555
-TNS   : -2.699
+Slack : -0.559
+TNS   : -2.558
 
-Type  : Fast 1000mV 0C Model Setup 'div_5:div_5|Tff_A'
-Slack : -0.405
-TNS   : -1.079
+Type  : Fast 1000mV 0C Model Setup 'div_5:div5|Tff_A'
+Slack : -0.374
+TNS   : -1.038
 
-Type  : Fast 1000mV 0C Model Setup 'div_5:div_5|A1'
-Slack : 0.209
+Type  : Fast 1000mV 0C Model Setup 'div_5:div5|A1'
+Slack : 0.198
 TNS   : 0.000
 
 Type  : Fast 1000mV 0C Model Setup 'div_25:div25|A1'
-Slack : 0.279
+Slack : 0.218
 TNS   : 0.000
 
 Type  : Fast 1000mV 0C Model Hold 'div_25:div25|Tff_A'
-Slack : -0.723
-TNS   : -8.965
+Slack : -1.010
+TNS   : -11.136
 
-Type  : Fast 1000mV 0C Model Hold 'div_5:div_5|Tff_A'
-Slack : -0.555
-TNS   : -2.026
-
-Type  : Fast 1000mV 0C Model Hold 'div_5:div_5|A1'
-Slack : 0.016
-TNS   : 0.000
+Type  : Fast 1000mV 0C Model Hold 'div_5:div5|Tff_A'
+Slack : -0.093
+TNS   : -0.139
 
 Type  : Fast 1000mV 0C Model Hold 'div_25:div25|A1'
-Slack : 0.047
-TNS   : 0.000
+Slack : -0.056
+TNS   : -0.056
 
-Type  : Fast 1000mV 0C Model Hold 'UC_Master:UC_Master|state.S6'
-Slack : 0.133
-TNS   : 0.000
+Type  : Fast 1000mV 0C Model Hold 'div_5:div5|A1'
+Slack : -0.035
+TNS   : -0.035
 
 Type  : Fast 1000mV 0C Model Hold 'Clk_in'
-Slack : 0.279
+Slack : 0.285
 TNS   : 0.000
 
 Type  : Fast 1000mV 0C Model Minimum Pulse Width 'Clk_in'
@@ -200,9 +168,9 @@ TNS   : -17.104
 
 Type  : Fast 1000mV 0C Model Minimum Pulse Width 'div_25:div25|Tff_A'
 Slack : -1.763
-TNS   : -86.387
+TNS   : -142.803
 
-Type  : Fast 1000mV 0C Model Minimum Pulse Width 'div_5:div_5|Tff_A'
+Type  : Fast 1000mV 0C Model Minimum Pulse Width 'div_5:div5|Tff_A'
 Slack : -1.763
 TNS   : -8.815
 
@@ -210,12 +178,8 @@ Type  : Fast 1000mV 0C Model Minimum Pulse Width 'div_25:div25|A1'
 Slack : -1.763
 TNS   : -1.763
 
-Type  : Fast 1000mV 0C Model Minimum Pulse Width 'div_5:div_5|A1'
+Type  : Fast 1000mV 0C Model Minimum Pulse Width 'div_5:div5|A1'
 Slack : -1.763
 TNS   : -1.763
-
-Type  : Fast 1000mV 0C Model Minimum Pulse Width 'UC_Master:UC_Master|state.S6'
-Slack : 0.381
-TNS   : 0.000
 
 ------------------------------------------------------------

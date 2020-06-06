@@ -15,14 +15,14 @@ wire		  wTff_B;
 assign 	 wTff_A  = Tff_A;			//Connects registers to wires 
 assign 	 wTff_B  = Tff_B;			//to use combinational logic
 
-assign 	 clk_out = wTff_B ^ wTff_A;	//XOR gate produces output clock.
+assign 	 clk_out = wTff_B ^ wTff_A;	//XOR gate produces output clock
 
 //Counter for division by N
 always@(posedge clk_in)
 	begin
-		if(count == 4'b0100)	//Count to N-1. Ex: Use 4 to divide by 5
+		if(count == 4'b0100)	//Count to N-1
 			begin
-				count <=4'b0000;
+				count <= 4'b0000;
 			end	
 		else
 			begin
@@ -42,7 +42,7 @@ always@(posedge clk_in)
 //Sets B to high for one clock cycle after counter is (N+1)/2
 always@(posedge clk_in)
 	begin
-		if(count == 4'b0011)	//Use (N+1)/2. Ex: (5+1)/2 = 3		
+		if(count == 4'b0011)	//Use (N+1)/2	
 			B1 <= 1;
 		else
 			B1 <= 0;

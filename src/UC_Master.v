@@ -2,7 +2,7 @@ module UC_Master(input Clk,
 input Clk_scl,
 input Rst,
 input Start,
-input R_W,
+input RW,
 input Datain_sda,
 input [7:0] Pointer,
 input Set_pointer,
@@ -22,29 +22,29 @@ output reg Error);
   
   reg [4:0] state,next;
   
-  parameter IDLE = 5'b0000,  
-            START = 5'b0001,  
-            ADRESS = 5'b0010,  
-            ACK_ADRESS = 5'b0011,  
-            MSB_RD = 5'b0100, 
-            ACK_MSB_RD = 5'b0101,  
-            LSB_RD = 5'b0110, 
-            NACK_LSB_RD = 5'b0111, 
-            POINTER = 5'b1000,  
-            ACK_POINTER = 5'b1001,  
-            MSB_WR = 5'b1010, 
-            ACK_MSB_WR = 5'b1011, 
-            LSB_WR = 5'b1100, 
-            ACK_LSB_WR = 5'b1101, 
-            STOP = 5'b1110, 
-            ERROR = 5'b1111, 
+  parameter IDLE = 5'b00000,  
+            START = 5'b00001,  
+            ADRESS = 5'b00010,  
+            ACK_ADRESS = 5'b00011,  
+            MSB_RD = 5'b00100, 
+            ACK_MSB_RD = 5'b00101,  
+            LSB_RD = 5'b00110, 
+            NACK_LSB_RD = 5'b00111, 
+            POINTER = 5'b01000,  
+            ACK_POINTER = 5'b01001,  
+            MSB_WR = 5'b01010, 
+            ACK_MSB_WR = 5'b01011, 
+            LSB_WR = 5'b01100, 
+            ACK_LSB_WR = 5'b01101, 
+            STOP = 5'b01110, 
+            ERROR = 5'b01111, 
             REPEAT = 5'b10000; 
  
   always@(posedge Clk or negedge Rst)
     if (!Rst) state = IDLE;
     else      state = next;
       
-  always@(state or Out_cont_data or Start or Out_cont_cycle or Datain_sda or Clk_scl or R_W or Return or Pointer or Set_pointer) begin
+  always@(state or Out_cont_data or Start or Out_cont_cycle or Datain_sda or Clk_scl or RW or Return or Pointer or Set_pointer) begin
   next = 4'bx;
   case(state)
     IDLE: if (Start) next = START;
@@ -53,8 +53,8 @@ output reg Error);
            else next = START;
     ADRESS: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0101) next = ACK_ADRESS;
         else  next = ADRESS;
-    ACK_ADRESS: if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && R_W == 1'b0) next = POINTER;
-        else if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && R_W == 1'b1) next = MSB_RD;
+    ACK_ADRESS: if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && RW == 1'b0) next = POINTER;
+        else if (Clk_scl == 1'b1 && Datain_sda == 1'b0 && RW == 1'b1) next = MSB_RD;
         else if (Clk_scl == 1'b1 && Datain_sda == 1'b1) next = IDLE;
         else next = ACK_ADRESS; 
     MSB_RD: if (Out_cont_data == 4'b1000 && Out_cont_cycle == 4'b0001 && Pointer[1:0] != 2'b01) next = ACK_MSB_RD;
@@ -100,17 +100,17 @@ output reg Error);
   Load_shiftPLSR = 1'b1;
   Load_shiftSRPL = 1'b0;
   Ready = 1'b0;
-  Data_valid = 1'b0;  //informa al usuari quan la dada a la Data_out és vàlida
+  Data_valid = 1'b0;          //informa al usuari quan la dada a la Data_out és vàlida
   Error = 1'b0;
-  Repeat = 1'b0; //si = 1, indica que estem al estat per repetir Start
+  Repeat = 1'b0;              //si = 1, indica que estem al estat per repetir Start
   case(state)
     IDLE: begin
     Ready = 1'b1;
     SelectPLSR = 3'b100; //carrego Save_adr a al ShiftSRPL
     end
     START:begin
-    Enable_sda = 2'b01; //provoco un negedge a Sda
-    SelectPLSR = 3'b100;           
+    Enable_sda = 2'b01;       //provoco un negedge a Sda
+    SelectPLSR = 3'b100;      //selecciono el registre del qual carregar les dades al shift register         
     if (Out_cont_cycle == 4'b0001)
       Load_shiftPLSR = 1'b0;
     else
@@ -126,7 +126,7 @@ output reg Error);
         Load_shiftPLSR = 1'b1;  //als demés cicles la dada es manté estable a la sortida
     end
     ACK_ADRESS:begin
-    Enable_clk = 2'b10; //Scl segueix activat per rebre l'ACK
+    Enable_clk = 2'b10;         //Scl segueix activat per rebre l'ACK
     end
     MSB_RD:begin
     Enable_clk = 2'b10;
@@ -138,8 +138,8 @@ output reg Error);
     end
     ACK_MSB_RD:begin
     Enable_clk = 2'b10;
-    Enable_sda = 2'b01;
-    Data_valid = 1'b1;
+    Enable_sda = 2'b01;       //provo un 0 a Sda activant el tri-state
+    Data_valid = 1'b1;        //les dades a la sortida seran vàlides
     end
     LSB_RD:begin
     Enable_clk = 2'b10;
@@ -157,20 +157,20 @@ output reg Error);
     Enable_sda = 2'b10;
     Enable_clk = 2'b10;
     En_cont_data = 1'b1;
-    SelectPLSR = 3'b001;
+    SelectPLSR = 3'b001; 
       if (Out_cont_cycle == 4'b0001)
         Load_shiftPLSR = 1'b0;  //carrego dada a la sortida del shift 
       else
         Load_shiftPLSR = 1'b1;  //als demés cicles la dada es manté estable a la sortida
     end
     ACK_POINTER:begin
-    Enable_clk = 2'b10; //Scl segueix activat per rebre l'ACK
+    Enable_clk = 2'b10;         //Scl segueix activat per rebre l'ACK
     end
     MSB_WR: begin
     Enable_sda = 2'b10;
     Enable_clk = 2'b10;
     En_cont_data = 1'b1;
-    SelectPLSR = 3'b010;
+    SelectPLSR = 3'b010;  
       if (Out_cont_cycle == 4'b0001)
         Load_shiftPLSR = 1'b0;  
       else
@@ -215,7 +215,7 @@ output reg Error);
     SelectPLSR = 3'b100;
     if (Out_cont_cycle == 4'b0101 && Return == 1'b1) begin
       Enable_sda = 2'b01;
-      Load_shiftPLSR = 1'b0;
+      Load_shiftPLSR = 1'b0;  //carrego l'adreça al shift register
     end
     else if (Out_cont_cycle == 4'b0100 && Return == 1'b1) begin
       Enable_sda = 2'b01;
@@ -230,5 +230,3 @@ output reg Error);
  endcase
  end
 endmodule
-  
-  

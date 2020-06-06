@@ -20,7 +20,7 @@ assign 	 clk_out = wTff_B ^ wTff_A;	//XOR gate produces output clock.
 //Counter for division by N
 always@(posedge clk_in)
 	begin
-		if(count == 5'b11000)	//Count to N-1. Ex: Use 4 to divide by 5
+		if(count == 5'b11000)	//Count to N-1
 			begin
 				count <=5'b00000;
 			end	
@@ -42,7 +42,7 @@ always@(posedge clk_in)
 //Sets B to high for one clock cycle after counter is (N+1)/2
 always@(posedge clk_in)
 	begin
-		if(count == 5'b01101)	//Use (N+1)/2. Ex: (5+1)/2 = 3		
+		if(count == 5'b01101)	//Use (N+1)/2
 			B1 <= 1;
 		else
 			B1 <= 0;
